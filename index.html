@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Engineering Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><label for="uebung-1">Übung 1</label></li>
+                <li><label for="uebung-2">Übung 2</label></li>
+                <li><label for="uebung-3">Übung 3</label></li> 
+            </ul>
+            <h1>Solution Navigator</h1>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <section class="Aufgabe">
+                <input type="radio" name="ul" id="uebung-1" value="aufgabe" checked>
+                <ul>
+                    <li><label for="uebung-1-aufgabe-1">Aufgabe 1</label></li>
+                    <li><label for="uebung-1-aufgabe-2">Aufgabe 2</label></li>
+                    <li><label for="uebung-1-aufgabe-3">Aufgabe 3</label></li>
+                    <li><label for="uebung-1-aufgabe-4">Aufgabe 4</label></li>
+                    <li><label for="uebung-1-aufgabe-5">Aufgabe 5</label></li>
+                    <li><label for="uebung-1-aufgabe-6">Aufgabe 6</label></li>
+                    <li><label for="uebung-1-aufgabe-7">Aufgabe 7</label></li>
+                </ul>
+            </section>
+            <section class="Aufgabe">
+                <input type="radio" name="ul" id="uebung-2" value="aufgabe">
+                <ul>
+                    <li><label for="uebung-2-aufgabe-1">Aufgabe 1</label></li>
+                    <li><label for="uebung-2-aufgabe-2">Aufgabe 2</label></li>
+                    <li><label for="uebung-2-aufgabe-3">Aufgabe 3</label></li>
+                    <li><label for="uebung-2-aufgabe-4">Aufgabe 4</label></li>
+                    <li><label for="uebung-2-aufgabe-5">Aufgabe 5</label></li>
+                    <li><label for="uebung-2-aufgabe-6">Aufgabe 6</label></li>
+                    <li><label for="uebung-2-aufgabe-7">Aufgabe 8</label></li>
+                </ul>
+            </section>
+            
+            
+        </aside>
+        <article>
+            <section class="loesung-1" > 
+                <input type="radio" name="div" id="uebung-1-aufgabe-1" value="loesung" >
+                <p class="lösung">Meine lösung</p>
+                <div class="meine-loesung" id="uebung-1-aufgabe-1">
+                    <h3><u>World Wide Web</u></h3>
+                    <h4>Mit welchen fachlichen Argumenten wurde das WWW-Proposal von Tim Burners Lee abgelehnt?</h4>
+                    <p>
+                        WWW-Proposal von Tim Berners-Lee wurde von seinen Chef am CERN zunächst abgelehnt (Kommentar des Chefs: Interessant, aber ein bisschen vage.). Die wichtigsten fachlichen Argumente gegen das Projekt waren:  z.B. Vagheit, Zu komplex, Unsicherheiten,Technische Herausforderungen.
+                    </p>
+                </div>
+                
+            </section>
+            <section class="loesung-2" > 
+                <input type="radio" name="div" id="uebung-1-aufgabe-2" value="loesung" >
+                <div class="meine-loesung" id="uebung-1-aufgabe-2">
+                    <h3><u> HTTP</u></h3>
+                    <h4>Sie bekommen im Browser den HTTP Status Code 200. Was bedeutet das?</h4>
+                    <p>
+                        Der HTTP-Status Code 200 bedeutet "OK". Es zeigt an, dass die Anfrage erfolgreich war und der Server die    
+                        gewünschte Ressource gefunden und zurückgegeben hat.
+                    </p>
+                    <h4>Sie bekommen im Browser den HTTP Status Code 301. Was hat das zu bedeuten?</h4>
+                    <p>
+                        HTTP-Status Code 301 ist eine Umleitung "Moved Permanently". Es bedeutet, dass Die angeforderte Ressource     
+                        dauerhaft auf eine neue URL verschoben wurde.
+                    </p>
+                    <h4>Sie bekommen im Browser den HTTP Status Code 400. Was hat das zu bedeuten? Was können Sie dagegen tun?</h4>
+                    <p>
+                        HTTP-Status Code 400 bedeutet, dass es sich um eine "Bad Request" handelt. Zur vermeiden 400: Bad Request        kann man folgende schritte unternehmen: URL überprüfen, Anfrageparameter überprüfen, löschen Browser-Cache,     Anderen Browser benutzen usw.
+                    </p>
+                    <h4>Sie bekommen im Browser den HTTP Status Code 403. Was hat das zu bedeuten? Was können Sie dagegen tun?</h4>
+                    <p>
+                        HTTP-Statuscode 403 bedeutet "Forbidden". Es zeigt, dass der Server den Zugriff auf die angeforderte Ressource   
+                         verweigert. Ich kann Folgendes tun, um den Fehler zu vermeiden: Berechtigungen überprüfen, Verfügbarkeit der  Ressource überprüfen. Passwörter überprüfen (wenn die Ressource durch Passwörter geschützt ist  ), Web-Admin  kontaktieren usw.
+                    </p>
+
+                </div>
+            </section>
+            <section class="loesung-3" > 
+                <input type="radio" name="div" id="uebung-1-aufgabe-3" value="loesung" >
+                <div class="meine-loesung" id="uebung-1-aufgabe-3">
+                    <h3><u> Quiz zu HTML</u></h3>
+                    <div>
+                        <p><b>Frage 1/6:</b> Was ist HTML?</p>
+                        <input type="radio" id="html" name="html-01" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">eine Auszeichnungssprache</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage 2/6:</b> Wofür steht HTML?</p>
+                        <input type="radio" id="html" name="html-02" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">Hypertext Markup Language</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage 3/6:</b> Wofür wird HTML eingesetzt?</p>
+                        <input type="radio" id="html" name="html-03" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">für die Strukturierung digitaler Dokumente</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage 4/6:</b> Wer hat HTML erfunden?</p>
+                        <input type="radio" id="html" name="html-04" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">Tim Berners-Lee</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage 5/6:</b> Zu welchem ursprünglichen Zweck wurde HTML erfunden?</p>
+                        <input type="radio" id="html" name="html-05" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">für den Austausch wissenschaftlicher Publikationen</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage 6/6:</b> Wer arbeitet alles an der Weiterentwicklung von HTML?</p>
+                        <input type="checkbox" id="html" name="html-06" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">die Web Hypertext Application Technology Working Group (WHATWG)</label><br>
+                        <input type="checkbox" id="html" name="html-06" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">das World Wide Web Consortium (W3C)</label><br>
+                    </div>
+                </div>
+            </section>
+            <section class="loesung-4"> 
+                <input type="radio" name="div" id="uebung-1-aufgabe-4" value="loesung" >
+                <div class="meine-loesung" id="uebung-1-aufgabe-4">
+                    <h3><u> Quiz zu HTML-Tags</u></h3>
+                    <div>
+                        <p><b>Frage 1/6:</b> Was ist ein HTML-Tag?</p>
+                        <input type="radio" id="html" name="html-1" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">ein Auszeichnungselement</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage 2/6:</b> Wofür nutzt man einen HTML-Tag?</p>
+                        <input type="checkbox" id="html" name="html-2" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">Zur Strukturierung von Webseiteninhalten</label><br>
+                        <input type="checkbox" id="html" name="html-2" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">Zur Einbettung weiterer Inhalte, die über Text hinausgehen</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage 3/6:</b> Woraus besteht ein HTML-Tag und wie setzt man ihn ein?</p>
+                        <input type="checkbox" id="html" name="html-3" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">&lt; p &gt; Paragraph &lt; /p &gt;</label><br>
+                        <input type="checkbox" id="html" name="html-3" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">&lt; h2 &gt Überschrifth &lt; /h2 &gt</label><br>
+                        <input type="checkbox" id="html" name="html-3" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">Hallo Welt! &lt; /br &gt Willkommen.</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage 4/6:</b> Was ist ein HTML-Attribut?</p>
+                        <input type="radio" id="html" name="html-2" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">eine Eigenschaft</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage5/6:</b> Wofür nutzt man ein HTML-Attribut?</p>
+                        <input type="radio" id="html" name="html-3" value="HTML" style="display: inline-block;" checked>
+                        <label for="html">zur Beschreibung zusätzlicher Eigenschaften von HTML-Tags</label><br>
+                    </div>
+                    <div>
+                        <p><b>Frage 6/6:</b> Wie schreibt man einen Kommentar in HTML?</p>
+                        <input type="radio" id="html" name="html-4" value="HTML" style="display: inline-block;" checked>
+                        <label for="html"> &lt;!-- Kommentar --&gt;</label><br>
+                    </div>
+                </div>
+            </section>
+            <section class="loesung-5"> 
+                <input type="radio" name="div" id="uebung-1-aufgabe-5" value="loesung" >
+                <div class="meine-loesung" id="uebung-1-aufgabe-5">
+                    <h3><u> Lückentext zu HTML</u></h3>
+                    <div class="html-luekentext">
+                        &lt;!DOCTYPE html&gt;<br>
+                        &lt;html&gt;<br>
+                        &lt;head&gt;<br>
+                            &lt;title&gt;Titel der Webseite&lt;/title&gt;<br>
+                        &lt;/head&gt;<br>
+                        &lt;body&gt;<br>
+                            &lt;h1&gt;Anwendung von HTML-Tags&lt;/h1&gt;<br>
+                            &lt;h2&gt;Motivation&lt;/h2&gt;<br>
+                            &lt;p&gt;Dieser Lückentext unterstützt Sie dabei selbst einzuschätzen, ob Sie in der Lage sind das HTML-Grundgerüst und die HTML-Tags zum Markieren von Überschriften, Paragraphen und HTML-Kommentaren einzusetzen.&lt;/p&gt;<br>
+                            &lt;!--<br>
+                                &lt;h2&gt;Auskommentierung von HTML-Code&lt;/h2&gt;<br>
+                                &lt;p&gt;Dieser Abschnitt wurde auskommentiert.&lt;/p&gt;<br>
+                            --&gt;<br>
+                        &lt;/body&gt;<br>
+                        &lt;/html&gt;<br>
+                    </div>
+                </div>
+            </section>
+            <section class="loesung-6" > 
+                <input type="radio" name="div" id="uebung-1-aufgabe-6" value="loesung" >
+                
+                <div class="meine-loesung" id="uebung-1-aufgabe-6">
+                    <h3><u> HTML-Literatur lesen und Fragen beantworten</u></h3>
+                    <h4>Was ist HTML?</h4>
+                    <p>
+                        HTML: HTML ist die Standard-Auszeichnungssprache für Webseiten. Es verwendet Tags und Attribute, um Webinhalte zu strukturieren und Webbrowser verwenden HTML, um Benutzern Webseiten anzuzeigen.
+                    </p>
+                </div>
+                
+            </section>
+            <section class="loesung-7" > 
+                <input type="radio" name="div" id="uebung-1-aufgabe-7" value="loesung" checked> 
+                <div class="meine-loesung" id="uebung-1-aufgabe-7">
+                    
+                    <div>
+                        <h1>Übung 1.2: Inventors of the Web</h1>
+            <ul >
+            <li><mark><u><b>Tim Berners-Lee:</b></u></mark> WWW, HTTP, HTML, URI</li>
+            <li><b>Hakom Lie and Bert Bos:</b> CSS</li>
+            <li><b>Brendan Eich:</b> JavaScript</li>
+            </ul>
+    
+        <hr width="540px" align="left">
+        <h2>Inventors of the WWW</h2>
+
+ <!-- table 1 -->
+    <table border="1" style="border-top: 10px solid gray; border-left: 10px solid gray; border-right: 10px solid #4c4b4b;border-bottom: 10px solid #4c4b4b; margin-bottom: 25px; " >
+        <tr>
+             <th colspan="4">Inventors of the WWW</th>
+         </tr>
+         <tr>
+            <th>WWW</th>
+            <th>HTML</th>
+            <th>CSS</th>
+            <th>Javascript</th>
+        </tr>
+        <tr>
+            <td><mark>Tim Berners-Lee</mark></td>
+            <td><mark>Tim Berners-Lee</mark></td>
+            <td>Hakom Lie and Bert Bos</td>
+            <td>Brendan Eich</td>
+        </tr>
+    </table>
+
+<!-- table 1-->
+    <hr width="540px" align="left">
+    <strong style="padding-left: 40px;">Inventors of the WWW</strong>
+    <hr width="250px" align="left">
+<!-- table 2-->
+
+    <table style="margin-bottom: 25PX;">  
+        <tr>
+            <th> HTML</th>
+            <th>|</th>
+            <th>JavaScript</th>
+        </tr>
+        <tr>
+           <td><img width="110px" src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/tbl.jpg" alt="Tim Berners-Lee"></td> 
+            <th>|</th>
+            <td><img  width="110px" src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/eich.jpg" alt="Brendan Eich"></td>
+
+        </tr>
+        <tr>
+            <td><mark>Tim Berners-Lee</mark></td>
+            <td>|</td>
+            <td>Brendan Eich</td>
+        </tr>
+    </table>
+<!-- table 2-->
+
+    <hr width="540px" align="left">
+                    </div>
+                </div>
+                
+            </section>
+        </article>
+    </main>
+    <footer>
+        <p>Copyright © 2023 KhaledPexp!</p>
+    </footer>
+</body>
+</html>
