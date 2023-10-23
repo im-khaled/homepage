@@ -104,6 +104,9 @@ footer{
 footer p{
     padding-top: 30px;
 }
+.footer-correction{
+    margin-bottom: 500px;
+}
 iframe{
     width: 95%;
     height: 700px;
