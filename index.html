@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Engineering Home</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
 </head>
 <body>
     <header>
@@ -13,6 +14,7 @@
                 <li><label for="uebung-1">Übung 1</label></li>
                 <li><label for="uebung-2">Übung 2</label></li>
                 <li><label for="uebung-3">Übung 3</label></li> 
+                <li><label for="uebung-4">Übung 4</label></li> 
             </ul>
             <h1>Solution Navigator</h1>
         </nav>
@@ -47,6 +49,15 @@
                     <li><label for="uebung-3-aufgabe-1">Aufgabe 1</label></li>
                     <li><label for="uebung-3-aufgabe-2">Aufgabe 2</label></li>
                     <li><label for="uebung-3-aufgabe-3">Aufgabe 3</label></li> 
+                </ul>
+            </section>
+            <section class="Aufgabe">
+                <input type="radio" name="ul" id="uebung-4" value="aufgabe">
+                <ul>
+                    <li><label for="uebung-4-aufgabe-1">Aufgabe 1</label></li>
+                    <li><label for="uebung-4-aufgabe-2">Aufgabe 2</label></li>
+                    <li><label for="uebung-4-aufgabe-3">Aufgabe 3</label></li> 
+                    <li><label for="uebung-4-aufgabe-4">Aufgabe 4</label></li> 
                 </ul>
             </section>
             
@@ -340,13 +351,260 @@
                 </div>
             </section>
              <!--lösung von Übung-3 beended-->
+             <!--lösung von Übung-4 startet-->
+             <section class="Uebung4-loesung-1">
+                <input type="radio" name="div" id="uebung-4-aufgabe-1" value="loesung" >
+                <div class="meine-loesung" id="uebung-4-aufgabe-1">
+                    <h3><u>Funktionen</u></h3>
+                    <pre><code class="javascript">
+        //Aufgabe 1
+        function identity(a) {
+            return a;
+        }
 
-        </article>
+        //Aufgabe 2
+        function identity_function(a) {
+            return function() {
+            return a;
+            };
+        }
+        
+        // Aufgabe 3
+        function add(x, y) {
+            return x + y;
+        }
+        
+        function mul(x, y) {
+            return x * y;
+        }
+        
+        //Aufgabe 4
+        function addf(x) {
+            return function(y) {
+            return x + y;
+            };
+        }
+        
+        // Example usage:
+        const result = addf(3)(4); 
+        console.log("Result:", result);
+        
+        //aufgabe 5
+        function applyf(binaryFunc) {
+            return function(x) {
+            return function(y) {
+                return binaryFunc(x, y);
+            };
+            };
+        }
+        const addff = applyf(add);
+        const mulf = applyf(mul);
+        
+        const resultAdd = addff(3)(4); // Result: 7
+        const resultMul = mulf(5)(6); // Result: 30
+        
+        console.log("Result (addf):", resultAdd);
+        console.log("Result (mulf):", resultMul);
+
+                    </code></pre>
+                </div>
+            </section>
+            <section class="Uebung4-loesung-2">
+                <input type="radio" name="div" id="uebung-4-aufgabe-2" value="loesung" >
+                <div class="meine-loesung" id="uebung-4-aufgabe-2">
+                    <h3><u>Objekte</u></h3>
+                    <pre><code class="javascript">
+            // Person-Prototyp
+        function Person(name) {
+            this.name = name;
+            this.autos = [];
+        }
+        
+        // Auto-Prototyp
+        function Auto(model) {
+            this.model = model;
+            this.owner = [];
+        }
+        
+        // Funktion zum Überprüfen von Konflikten
+        function conflict(auto) {
+            
+            if(auto.owner.length > 1){
+                console.log('\nKonflikt gefunden');
+                for(var x of auto.owner ){
+                    console.log(auto.model, 'wird von', x, 'besessen');
+                }
+                
+            return true;   
+            }
+            else{
+            console.log('\nFür',auto.model,'Kein Konflikt gefunden'); 
+            }
+            return false;
+        }
+        
+        // Beispiel
+        const person1 = new Person("Paul");
+        const person2 = new Person("Linda");
+        const person3 = new Person("Tim");
+        
+        const auto1 = new Auto("BMW");
+        const auto2 = new Auto("Audi");
+        const auto3 = new Auto("Volkswagen");
+        
+        
+        person1.autos.push(auto1);
+        person2.autos.push(auto2);
+        person3.autos.push(auto3);
+        
+        
+
+        auto1.owner.push (person1.name);
+        auto2.owner.push (person2.name);
+        auto3.owner.push (person1.name);
+        auto3.owner.push (person3.name);
+
+
+                    // false, kein Konflikt
+                    conflict(auto1); 
+
+                    // true, Konflikt gefunden
+                    conflict(auto3); 
+                    </code></pre>
+                </div>
+            </section>
+            <section class="Uebung4-loesung-3">
+                <input type="radio" name="div" id="uebung-4-aufgabe-3" value="loesung" >
+                <div class="meine-loesung" id="uebung-4-aufgabe-3">
+                    <h3><u>Fibonacci</u></h3>
+                    <pre><code class="javascript">
+                       
+        const fibTable = new Map();
+        const GrosteInt = new Array();
+        const intZahl = new Array();
+        const numZahl = new Array();
+        
+        function fib(n) {
+            // Initialisiere die ersten beiden Fibonacci-Zahlen.
+            let prevPrev = 0;
+            let prev = 1;
+            if(n === 0){
+                return 0;
+            }
+            if(n === 1) {
+                return 1;
+            }
+            // Berechne die Fibonacci-Zahlen von 2 bis n.
+            for (let i = 2; i <= n; i++) {
+            const current = prevPrev + prev;
+            prevPrev = prev;
+            prev = current;
+            }
+        
+            // Rückgabe der n-ten Fibonacci-Zahl.
+            return prev;
+        }
+        for (let i = 0; i <= 2000; i++) {
+            let result = fib(i);
+            
+            if(result > Number.MAX_SAFE_INTEGER && result < Number.MAX_VALUE){
+
+                intZahl.push(i-1);
+                const newResult = fib(i-1);
+                GrosteInt.push(newResult);
+                result = BigInt(result);
+                numZahl.push(result);
+                
+            }
+            fibTable.set(i, result);
+            console.log(fibTable); 
+            
+        }
+        //größte Fibonacci-Zahl, die sich noch als Integer sicher speichern lässt
+        console.log('Größte Fibonacci-Zahl(Integer)', GrosteInt[0])
+
+        //Die Zahl, die in der Fibonacci-Folge(Integer)
+        console.log('Die anzahl, die in der Fibonacci-Folge(Integer):', intZahl[0]);
+
+        //die größte Fibonacci-Zahl, die sich noch als Number speichern lässt 
+        console.log('Größte Fibonacci-Zahl(Number)', numZahl[numZahl.length-1])
+
+        //Die Zahl, die in der Fibonacci-Folge(Number)
+        console.log('Die anzahl, die in der Fibonacci-Folge(Number):', intZahl.length);
+                    </code></pre>
+                </div>
+            </section>
+            <section class="Uebung4-loesung-4">
+                <input type="radio" name="div" id="uebung-4-aufgabe-4" value="loesung" >
+                <div class="meine-loesung" id="uebung-4-aufgabe-4">
+                    <h3><u>TopSort</u></h3>
+                    <pre><code class="javascript">
+    function topsort(abhaengigkeiten) {
+        const graph = new Map();
+        const sortedGraph = new Map();
+        const ergebnis = [];
+        
+        // Erstelle den Graphen und berechne die sortedGraph
+        for (const [von, nach] of abhaengigkeiten) {
+            if (!graph.has(von)) {
+            graph.set(von, []);
+            }
+            graph.get(von).push(nach);
+        
+            sortedGraph.set(nach, (sortedGraph.get(nach) || 0) + 1);
+        }
+        
+        // Initialisiere eine queue mit Knoten
+        const queue = [];
+        for (const knoten of graph.keys()) {
+            if (!sortedGraph.has(knoten)) {
+            queue.push(knoten);
+            }
+        }
+        
+        // Führe die topologische Sortierung
+        while (queue.length > 0) {
+            const knoten = queue.shift();
+            ergebnis.push(knoten);
+        
+            if (graph.has(knoten)) {
+            for (const nachbar of graph.get(knoten)) {
+                sortedGraph.set(nachbar, sortedGraph.get(nachbar) - 1);
+        
+                if (sortedGraph.get(nachbar) === 0) {
+                queue.push(nachbar);
+                }
+            }
+            }
+        }
+        
+        return ergebnis;
+        }
+        
+        // Test
+        const abhaengigkeiten = [["schlafen", "studieren"], ["essen", "studieren"], ["studieren", "pruefen"],["vorbereiten", "pruefen"]];
+        const ergebnis = topsort(abhaengigkeiten);
+    
+        console.assert(ergebnis.indexOf("essen") < ergebnis.indexOf("studieren"), "Test failed: 'essen' sollte vor 'studieren' liegen");
+        console.assert(ergebnis.indexOf("schlafen") < ergebnis.indexOf("studieren"), "Test failed: 'schlafen' sollte vor 'studieren' liegen");
+        console.assert(ergebnis.indexOf("studieren") < ergebnis.indexOf("pruefen"), "Test failed: 'studieren' sollte vor 'pruefen' liegen");
+        console.assert(ergebnis.indexOf("vorbereiten") < ergebnis.indexOf("pruefen"), "Test failed: 'studieren' sollte vor 'pruefen' liegen");
+    
+        console.log("Topologische Sortierung:", ergebnis);  
+                    </code></pre>
+                </div>
+            </section>
+             <!--lösung von Übung-4 beended-->
+        </article>  
         
     </main>
     <footer>
         <p>Copyright © 2023 KhaledPexp!</p>
     </footer>
-    
+
+    <!--highlight js CDN link here-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
