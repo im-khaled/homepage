@@ -114,3 +114,77 @@ iframe{
     overflow: visible;
     border: none;
 }
+        /* --------------------------------
+                for tablet devices 
+        ----------------------------------*/
+        @media screen and (min-width: 768px ) and (max-width:991px){
+            main{
+                display: block;
+                margin: 40px 80px;
+               
+            }
+            aside{
+                width: 100%;
+                margin-bottom: 2rem;
+                
+            }
+            aside li{
+                display: inline-block;
+                padding: 5px 10px;
+            
+            }
+            article{
+                width: 100%;
+            }
+            
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        /* -------------------------------
+                for mobile devices
+        ---------------------------------*/
+        @media screen and (max-width: 768px ){
+
+            nav{
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem;
+            }
+            h1{
+                padding-bottom: 8px;
+            } 
+            header{
+                height: 90px;
+            }
+            main{
+                display: block;
+                margin: 40px 40px;
+               
+            }
+            aside{
+                width: 100%;
+                margin-bottom: 2rem;
+                
+            }
+            aside ul {
+                text-align: start;
+                margin-left: 1rem;
+            }
+            aside li{
+                display: inline-block;
+                padding: 5px 10px;
+            
+            }
+            article{
+                width: 100%;
+            }
+            .meine-loesung{
+                overflow: scroll;
+            }
+            iframe{
+                margin: 0 0;
+                overflow-x: scroll;
+            }
+        }
