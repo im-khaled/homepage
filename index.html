@@ -15,6 +15,7 @@
                 <li><label for="uebung-2">Übung 2</label></li>
                 <li><label for="uebung-3">Übung 3</label></li> 
                 <li><label for="uebung-4">Übung 4</label></li> 
+                <li><label for="Dom">Dom</label></li> 
             </ul>
             <h1>Solution Navigator</h1>
         </nav>
@@ -58,6 +59,15 @@
                     <li><label for="uebung-4-aufgabe-2">Aufgabe 2</label></li>
                     <li><label for="uebung-4-aufgabe-3">Aufgabe 3</label></li> 
                     <li><label for="uebung-4-aufgabe-4">Aufgabe 4</label></li> 
+                </ul>
+            </section>
+            <section class="Aufgabe">
+                <input type="radio" name="ul" id="Dom" value="aufgabe">
+                <ul>
+                    <li><label for="Dom-aufgabe-1">Aufgabe 1</label></li>
+                    <li><label for="Dom-aufgabe-2">Aufgabe 2</label></li>
+                    <li><label for="Dom-aufgabe-3">Aufgabe 3</label></li> 
+                    
                 </ul>
             </section>
             
@@ -595,6 +605,32 @@ function topsort(abhaengigkeiten) {
                 </div>
             </section>
              <!--lösung von Übung-4 beended-->
+             <!--lösung von Dom Started-->
+             <section class="Dom-loesung-1">
+                <input type="radio" name="div" id="Dom-aufgabe-1" value="loesung" >
+                <div class="meine-loesung" id="Dom-aufgabe-1">
+                    <h3><u>Dom Operation</u></h3>
+                    <h4>Performanz-Messungen</h4>
+                    <iframe src="https://dom-operation-performance.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                </div>
+            </section>
+            <section class="Dom-loesung-2">
+                <input type="radio" name="div" id="Dom-aufgabe-2" value="loesung" >
+                <div class="meine-loesung" id="Dom-aufgabe-2">
+                    <h3><u>Rednerliste</u></h3>
+                    <h4>Rednerliste mit Zeitmessung</h4>
+                    <iframe src="https://redner-list-e2f760.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                </div>
+            </section>
+            <section class="Dom-loesung-3">
+                <input type="radio" name="div" id="Dom-aufgabe-3" value="loesung" >
+                <div class="meine-loesung" id="Dom-aufgabe-3">
+                    <h3><u>TopSort</u></h3>
+                    <h4>TopSort als Web-App</h4>
+                    <iframe src="https://top-short-8a16b3.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                </div>
+            </section>
+            <!--lösung von Dom beended-->
         </article>  
         
     </main>
