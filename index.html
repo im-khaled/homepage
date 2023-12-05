@@ -11,11 +11,12 @@
     <header>
         <nav>
             <ul>
-                <li><label for="uebung-1">Übung 1</label></li>
-                <li><label for="uebung-2">Übung 2</label></li>
-                <li><label for="uebung-3">Übung 3</label></li> 
-                <li><label for="uebung-4">Übung 4</label></li> 
-                <li><label for="Dom">Dom</label></li> 
+                <li><label for="uebung-1">HTML</label></li>
+                <li><label for="uebung-2">CSS</label></li>
+                <li><label for="uebung-3">RWD</label></li> 
+                <li><label for="uebung-4">JS</label></li> 
+                <li><label for="Dom">DOM</label></li> 
+                <li><label for="ES6">ES</label></li> 
             </ul>
             <h1>Solution Navigator</h1>
         </nav>
@@ -67,6 +68,17 @@
                     <li><label for="Dom-aufgabe-1">Aufgabe 1</label></li>
                     <li><label for="Dom-aufgabe-2">Aufgabe 2</label></li>
                     <li><label for="Dom-aufgabe-3">Aufgabe 3</label></li> 
+                    
+                </ul>
+            </section>
+            <section class="Aufgabe">
+                <input type="radio" name="ul" id="ES6" value="aufgabe">
+                <ul>
+                    <li><label for="ES6-aufgabe-1">Aufgabe 1</label></li>
+                    <li><label for="ES6-aufgabe-2">Aufgabe 2</label></li>
+                    <li><label for="ES6-aufgabe-3">Aufgabe 3</label></li> 
+                    <li><label for="ES6-aufgabe-4">Aufgabe 4</label></li> 
+                    <li><label for="ES6-aufgabe-5">Aufgabe 5</label></li> 
                     
                 </ul>
             </section>
@@ -631,11 +643,225 @@ function topsort(abhaengigkeiten) {
                 </div>
             </section>
             <!--lösung von Dom beended-->
+            <!--lösung von ES6 Started-->
+            <section class="ES6-loesung-1">
+                <input type="radio" name="div" id="ES6-aufgabe-1" value="loesung" >
+                <div class="meine-loesung" id="ES6-aufgabe-1">
+                    <h3><u>Klammerpaare</u></h3>
+                    <h4> Überprüfen Klammerpaare</h4>
+                    <iframe src="https://kalamarpaare-982fec.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                </div>
+            </section>
+            <section class="ES6-loesung-2">
+                <input type="radio" name="div" id="ES6-aufgabe-2" value="loesung" >
+                <div class="meine-loesung" id="ES6-aufgabe-2">
+                    <h3><u>Topologische Iterierbarkeit</u></h3>
+                    <h4> Topologische Iterierbarkeit Mit ES6 Klasse</h4>
+                    <iframe src="https://topologische-sort-e636a0.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                </div>
+            </section>
+            <section class="ES6-loesung-3">
+                <input type="radio" name="div" id="ES6-aufgabe-3" value="loesung" >
+                <div class="meine-loesung" id="ES6-aufgabe-3">
+                    <h3><u>Topologische Iterierbarkeit</u></h3>
+                    <h4> Topologische Iterierbarkeit mittels Generator her</h4>
+                    <pre><code class="javascript">
+    class Vorrang {
+
+        constructor(relations) {
+            this.graph = new Map();
+            this.inDegree = new Map();
+            this.sortedOrder = [];
+            
+            // Erstelle den Graphen und berechne die inDegreeGraph
+            relations.forEach(([node1, node2]) => {
+            if (!this.graph.has(node1)) {
+                this.graph.set(node1, new Set());
+                this.inDegree.set(node1, 0);
+            }
+            if (!this.graph.has(node2)) {
+                this.graph.set(node2, new Set());
+                this.inDegree.set(node2, 0);
+            }
+        
+            this.graph.get(node1).add(node2);
+            this.inDegree.set(node2, this.inDegree.get(node2) + 1);
+            });  
+        }
+        
+        // generator function
+        *generator() {
+                
+            while (this.sortedOrder.length < this.graph.size) {
+            const candidates = Array.from(this.inDegree.entries())
+                .filter(([node, inDegree]) => inDegree === 0 && !this.sortedOrder.includes(node))
+                .map(([node]) => node);
+        
+            const node = candidates[0];
+            this.sortedOrder.push(node);
+        
+            if (this.graph.has(node)) {
+                this.graph.get(node).forEach(neighbor => {
+                this.inDegree.set(neighbor, this.inDegree.get(neighbor) - 1);
+                });
+            }
+            
+            yield node;
+            
+            }
+            
+        }
+            
+        }
+        
+        // Test Data
+        const studentenLeben = new Vorrang([
+        ["schlafen", "studieren"],
+        ["essen", "studieren"],
+        ["studieren", "prüfen"],
+        ["vorbereiten", "prüfen"]
+        
+        ]);
+        
+        const gen = studentenLeben.generator();
+        
+        //Tests
+        console.assert(gen.next().value === "schlafen", "Test 1 nicht bestanden!");
+        console.assert(gen.next().value === "essen", "Test 2 nicht bestanden!");
+        console.assert(gen.next().value === "studieren", "Test 3 nicht bestanden!");
+        console.assert(gen.next().value === "vorbereiten", "Test 4 nicht bestanden!");
+        console.assert(gen.next().value === "prüfen", "Test 5 nicht bestanden!");
+                          
+                          
+                    </code></pre>
+                </div>
+            </section>
+            <section class="ES6-loesung-4">
+                <input type="radio" name="div" id="ES6-aufgabe-4" value="loesung" >
+                <div class="meine-loesung" id="ES6-aufgabe-4">
+                    <h3><u>Proxy</u></h3>
+                    <pre><code class="javascript">
+    class Vorrang {
+
+        constructor(relations) {
+            this.graph = new Map();
+            this.inDegree = new Map();
+            this.sortedOrder = [];
+            
+            // Erstelle den Graphen und berechne die inDegreeGraph
+            relations.forEach(([node1, node2]) => {
+            if (!this.graph.has(node1)) {
+                this.graph.set(node1, new Set());
+                this.inDegree.set(node1, 0);
+            }
+            if (!this.graph.has(node2)) {
+                this.graph.set(node2, new Set());
+                this.inDegree.set(node2, 0);
+            }
+        
+            this.graph.get(node1).add(node2);
+            this.inDegree.set(node2, this.inDegree.get(node2) + 1);
+            });
+    
+            // Proxy handler
+            this.handler = {
+                get: function (target, prop, receiver) {
+                    if (prop === 'generator') {
+                    
+                    return function () {   
+                        const result = target[prop].apply(target, arguments);
+                        
+                        return result;
+                    };
+                    }
+                    return target[prop];
+                },
+                
+            }
+    
+            // Proxy for Logging
+            this.proxy = new Proxy(this,this.handler);
+        }
+    
+        // generator function
+        *generator() {
+                
+            while (this.sortedOrder.length < this.graph.size) {
+            const candidates = Array.from(this.inDegree.entries())
+                .filter(([node, inDegree]) => inDegree === 0 && !this.sortedOrder.includes(node))
+                .map(([node]) => node);
+        
+            const node = candidates[0];
+            this.sortedOrder.push(node);
+        
+            if (this.graph.has(node)) {
+                this.graph.get(node).forEach(neighbor => {
+                this.inDegree.set(neighbor, this.inDegree.get(neighbor) - 1);
+                });
+            }
+            this.remainingRelations = this.graph.size - this.sortedOrder.length;
+            console.log(`Remaining relations: ${this.remainingRelations}`);
+            yield node;
+            
+            }
+            
+        }
+            
+        }
+        
+        // Test Data
+        const studentenLeben = new Vorrang([
+        ["schlafen", "studieren"],
+        ["essen", "studieren"],
+        ["studieren", "prüfen"],
+        ["vorbereiten", "prüfen"]
+    
+        ]);
+        
+        const gen = studentenLeben.proxy.generator();
+    
+        //Tests
+        console.assert(gen.next().value === "schlafen", "Test 1 nicht bestanden!");
+        console.assert(gen.next().value === "essen", "Test 2 nicht bestanden!");
+        console.assert(gen.next().value === "studieren", "Test 3 nicht bestanden!");
+        console.assert(gen.next().value === "vorbereiten", "Test 4 nicht bestanden!");
+        console.assert(gen.next().value === "prüfen", "Test 5 nicht bestanden!");  
+                    </code></pre>
+                </div>
+            </section>
+            <section class="ES6-loesung-5">
+                <input type="radio" name="div" id="ES6-aufgabe-5" value="loesung" >
+                <div class="meine-loesung" id="ES6-aufgabe-5">
+                    <h3><u>DeepCopy</u></h3>
+                    <pre><code class="javascript">
+        const deepCopy = (struct) =>
+        Array.isArray(struct)
+            ? struct.map((item) => deepCopy(item))
+            : typeof struct === 'object' && struct !== null
+            ? Object.fromEntries(
+                Object.entries(struct).map(([key, value]) => [key, deepCopy(value)])
+            )
+            : struct;
+        
+        // Test 
+        const originalArray = [1, [2, 3], { a: 4, b: { c: 5 } }];
+        const copiedArray = deepCopy(originalArray);
+        console.assert(JSON.stringify(originalArray) === JSON.stringify(copiedArray), 'Array test nicht bestanden');
+        
+        
+        const originalObject = { x: 1, y: { z: 2 }, arr: [3, 4] };
+        const copiedObject = deepCopy(originalObject);
+        console.assert(JSON.stringify(originalObject) === JSON.stringify(copiedObject), 'Object test nicht bestanden');
+                      
+                    </code></pre>
+                </div>
+            </section>
+            <!--lösung von ES6 beended-->
         </article>  
         
     </main>
     <footer>
-        <p>Copyright © 2023 KhaledPexp!</p>
+        <p>Copyright © 2023 Homepage!</p>
     </footer>
 
     <!--highlight js CDN link here-->
