@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Engineering Home</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
 </head>
@@ -11,90 +12,109 @@
     <header>
         <nav>
             <ul>
-                <li><label for="uebung-1">HTML</label></li>
-                <li><label for="uebung-2">CSS</label></li>
-                <li><label for="uebung-3">RWD</label></li> 
-                <li><label for="uebung-4">JS</label></li> 
-                <li><label for="Dom">DOM</label></li> 
-                <li><label for="ES6">ES</label></li> 
-                <li><label for="ASJS">ASYNC</label></li> 
-                <li><label for="SVG">SVG</label></li> 
+                <li class="navLabel active" id="sHTML"><label for="HTML">HTML</label></li>
+                <li class="navLabel" id="sCSS"><label for="CSS">CSS</label></li>
+                <li class="navLabel" id="sRWD"><label for="RWD">RWD</label></li> 
+                <li class="navLabel" id="sJS"><label for="JS">JS</label></li> 
+                <li class="navLabel" id="sDom"><label for="Dom">DOM</label></li> 
+                <li class="navLabel" id="sES6"><label for="ES6">ES</label></li> 
+                <li class="navLabel" id="sASJS"><label for="ASJS">ASYNC</label></li> 
+                <li class="navLabel" id="sSVG"><label for="SVG">SVG</label></li> 
+                <li class="navLabel" id="sTS"><label for="TS">TS</label></li>
+                <li class="navLabel" id="sNode"><label for="Node">Node</label></li>
             </ul>
-            <h1>Solution Navigator</h1>
+            <div style="display: flex; padding-bottom: 5px;">
+                <img style="width: 40px; padding-right: 2px;" src="images/logo_navigator.webp" alt="">
+                <a href="/" style="text-decoration: none; color:white">Solution <br> Navigator</a>
+            </div>
+            
         </nav>
     </header>
     <main>
         <aside>
-            <section class="Aufgabe">
-                <input type="radio" name="ul" id="uebung-1" value="aufgabe" checked>
+            <section class="HTML">
+                <input type="radio" onclick={addActiveClass()} name="ul"  id="HTML" class="navButton" checked>
                 <ul>
-                    <li><label for="uebung-1-aufgabe-1">Inventors</label></li>
-                    <li><label for="uebung-1-aufgabe-2">HTTP</label></li>
-                    <li><label for="uebung-1-aufgabe-3">Quiz 1</label></li>
-                    <li><label for="uebung-1-aufgabe-4">Quiz 2</label></li>
-                    <li><label for="uebung-1-aufgabe-5">Lückentext</label></li>
-                    <li><label for="uebung-1-aufgabe-6">Literatur</label></li>
-                    <li><label for="uebung-1-aufgabe-7">WWW</label></li>
+                    <li class=" asideButton " id="sHTML-aufgabe-1"><label for="HTML-aufgabe-1">Inventors</label></li>
+                    <li class=" asideButton " id="sHTML-aufgabe-2"><label for="HTML-aufgabe-2">HTTP</label></li>
+                    <li class=" asideButton " id="sHTML-aufgabe-3"><label for="HTML-aufgabe-3">Quiz 1</label></li>
+                    <li class=" asideButton " id="sHTML-aufgabe-4"><label for="HTML-aufgabe-4">Quiz 2</label></li>
+                    <li class=" asideButton " id="sHTML-aufgabe-5"><label for="HTML-aufgabe-5">Lückentext</label></li>
+                    <li class=" asideButton " id="sHTML-aufgabe-6"><label for="HTML-aufgabe-6">Literatur</label></li>
+                    <li class=" asideButton active" id="sHTML-aufgabe-7"><label for="HTML-aufgabe-7">Wireframe</label></li>
                 </ul>
             </section>
-            <section class="Aufgabe">
-                <input type="radio" name="ul" id="uebung-2" value="aufgabe">
+            <section class="CSS">
+                <input type="radio" onclick={addActiveClass()}  name="ul" id="CSS" class="navButton">
                 <ul>
-                    <li><label for="uebung-2-aufgabe-1">Repository-URL</label></li>
-                    <li><label for="uebung-2-aufgabe-2">CSS-Farben</label></li>
-                    <li><label for="uebung-2-aufgabe-3">CSS-Positionierung</label></li>
-                    <li><label for="uebung-2-aufgabe-4">Wireframe</label></li>
+                    <li class=" asideButton " id="sCSS-aufgabe-1"><label for="CSS-aufgabe-1">Repository-URL</label></li>
+                    <li class=" asideButton " id="sCSS-aufgabe-2"><label for="CSS-aufgabe-2">Farben</label></li>
+                    <li class=" asideButton " id="sCSS-aufgabe-3"><label for="CSS-aufgabe-3">Positionierung</label></li>
+                    <li class=" asideButton " id="sCSS-aufgabe-4"><label for="CSS-aufgabe-4">Wireframe</label></li>
                     
                 </ul>
             </section>
-            <section class="Aufgabe">
-                <input type="radio" name="ul" id="uebung-3" value="aufgabe">
+            <section class="RWD">
+                <input type="radio" onclick={addActiveClass()}  name="ul" id="RWD" class="navButton">
                 <ul>
-                    <li><label for="uebung-3-aufgabe-1">Flexbox</label></li>
-                    <li><label for="uebung-3-aufgabe-2">Grid</label></li>
-                    <li><label for="uebung-3-aufgabe-3">Wireframe</label></li> 
+                    <li class=" asideButton " id="sRWD-aufgabe-1"><label for="RWD-aufgabe-1">Flexbox</label></li>
+                    <li class=" asideButton " id="sRWD-aufgabe-2"><label for="RWD-aufgabe-2">Grid</label></li>
+                    <li class=" asideButton " id="sRWD-aufgabe-3"><label for="RWD-aufgabe-3">Wireframe</label></li> 
                 </ul>
             </section>
-            <section class="Aufgabe">
-                <input type="radio" name="ul" id="uebung-4" value="aufgabe">
+            <section class="JS">
+                <input type="radio" onclick={addActiveClass()}  name="ul" id="JS" class="navButton">
                 <ul>
-                    <li><label for="uebung-4-aufgabe-1">Funktionen</label></li>
-                    <li><label for="uebung-4-aufgabe-2">Objekte</label></li>
-                    <li><label for="uebung-4-aufgabe-3">Fibonacci</label></li> 
-                    <li><label for="uebung-4-aufgabe-4">TopSort</label></li> 
+                    <li class=" asideButton " id="sJS-aufgabe-1"><label for="JS-aufgabe-1">Funktionen</label></li>
+                    <li class=" asideButton " id="sJS-aufgabe-2"><label for="JS-aufgabe-2">Objekte</label></li>
+                    <li class=" asideButton " id="sJS-aufgabe-3"><label for="JS-aufgabe-3">Fibonacci</label></li> 
+                    <li class=" asideButton " id="sJS-aufgabe-4"><label for="JS-aufgabe-4">TopSort</label></li> 
                 </ul>
             </section>
-            <section class="Aufgabe">
-                <input type="radio" name="ul" id="Dom" value="aufgabe">
+            <section class="Dom">
+                <input type="radio" onclick={addActiveClass()}  name="ul" id="Dom" class="navButton"">
                 <ul>
-                    <li><label for="Dom-aufgabe-1">Operation</label></li>
-                    <li><label for="Dom-aufgabe-2">Rednerliste</label></li>
-                    <li><label for="Dom-aufgabe-3">Web-App</label></li> 
+                    <li class=" asideButton " id="sDom-aufgabe-1"><label for="Dom-aufgabe-1">Operation</label></li>
+                    <li class=" asideButton " id="sDom-aufgabe-2"><label for="Dom-aufgabe-2">Rednerliste</label></li>
+                    <li class=" asideButton " id="sDom-aufgabe-3"><label for="Dom-aufgabe-3">Web-App</label></li> 
                     
                 </ul>
             </section>
-            <section class="Aufgabe">
-                <input type="radio" name="ul" id="ES6" value="aufgabe">
+            <section class="ES6">
+                <input type="radio" onclick={addActiveClass()}  name="ul" id="ES6" class="navButton">
                 <ul>
-                    <li><label for="ES6-aufgabe-1">Klammerpaare</label></li>
-                    <li><label for="ES6-aufgabe-2">Iterierbarkeit-ES6</label></li>
-                    <li><label for="ES6-aufgabe-3">Iterierbarkeit-Generator</label></li> 
-                    <li><label for="ES6-aufgabe-4">Proxy</label></li> 
-                    <li><label for="ES6-aufgabe-5">Deep-Copy</label></li> 
+                    <li class=" asideButton " id="sES6-aufgabe-1"><label for="ES6-aufgabe-1">Klammerpaare</label></li>
+                    <li class=" asideButton " id="sES6-aufgabe-2"><label for="ES6-aufgabe-2">Iterierbarkeit-ES6</label></li>
+                    <li class=" asideButton " id="sES6-aufgabe-3"><label for="ES6-aufgabe-3">Iterierbarkeit-Generator</label></li> 
+                    <li class=" asideButton " id="sES6-aufgabe-4"><label for="ES6-aufgabe-4">Proxy</label></li> 
+                    <li class=" asideButton " id="sES6-aufgabe-5"><label for="ES6-aufgabe-5">Deep-Copy</label></li> 
                     
                 </ul>
             </section>
-            <section class="Aufgabe">
-                <input type="radio" name="ul" id="ASJS" value="aufgabe">
+            <section class="ASJS">
+                <input type="radio" onclick={addActiveClass()}  name="ul" id="ASJS" class="navButton">
                 <ul>
-                    <li><label for="ASJS-aufgabe-3">Navigator</label></li> 
+                    <li class=" asideButton " id="sASJS-aufgabe-3"><label for="ASJS-aufgabe-3">Navigator</label></li> 
                 </ul>
             </section>
-            <section class="Aufgabe">
-                <input type="radio" name="ul" id="SVG" value="aufgabe">
+            <section class="SVG">
+                <input type="radio" onclick={addActiveClass()}  name="ul" id="SVG" class="navButton">
                 <ul>
-                    <li><label for="SVG-aufgabe-2">Bar-Chart</label></li> 
-                    <li><label for="SVG-aufgabe-3">Tic-Tac-Toe</label></li> 
+                    <li class=" asideButton " id="sSVG-aufgabe-2" ><label for="SVG-aufgabe-2">Bar-Chart</label></li> 
+                    <li class=" asideButton " id="sSVG-aufgabe-3"><label for="SVG-aufgabe-3">Tic-Tac-Toe</label></li> 
+                </ul>
+            </section>
+            <section class="TS">
+                <input type="radio" onclick={addActiveClass()}  name="ul" id="TS" class="navButton">
+                <ul>
+                    <li class=" asideButton " id="sTS-aufgabe-1" ><label for="TS-aufgabe-1">Static</label></li> 
+                    <li class=" asideButton " id="sTS-aufgabe-2"><label for="TS-aufgabe-2">Fehler</label></li> 
+                </ul>
+            </section>
+            <section class="Node">
+                <input type="radio" onclick={addActiveClass()}  name="ul" id="Node" class="navButton">
+                <ul>
+                    <li class=" asideButton " id="sNode-aufgabe-1" ><label for="Node-aufgabe-1">Server</label></li> 
                 </ul>
             </section>
 
@@ -104,9 +124,9 @@
         <article>
         <!-- lösung von Übung-1 startet -->
             <section class="loesung-1" > 
-                <input type="radio" name="div" id="uebung-1-aufgabe-1" value="loesung" >
-                <p class="lösung">Meine lösung</p>
-                <div class="meine-loesung " id="uebung-1-aufgabe-1">
+                <input type="radio" name="div" id="HTML-aufgabe-1" onclick={addActiveClassAside()} class="loesung" >
+                <p class="lösung"></p>
+                <div class="meine-loesung " id="HTML-aufgabe-1">
                     <h3><u>World Wide Web</u></h3>
                     <h4>Mit welchen fachlichen Argumenten wurde das WWW-Proposal von Tim Burners Lee abgelehnt?</h4>
                     <p class="footer-correction">
@@ -116,8 +136,8 @@
                 
             </section>
             <section class="loesung-2" > 
-                <input type="radio" name="div" id="uebung-1-aufgabe-2" value="loesung" >
-                <div class="meine-loesung" id="uebung-1-aufgabe-2">
+                <input type="radio" name="div" id="HTML-aufgabe-2" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="HTML-aufgabe-2">
                     <h3><u> HTTP</u></h3>
                     <h4>Sie bekommen im Browser den HTTP Status Code 200. Was bedeutet das?</h4>
                     <p>
@@ -142,8 +162,8 @@
                 </div>
             </section>
             <section class="loesung-3" > 
-                <input type="radio" name="div" id="uebung-1-aufgabe-3" value="loesung" >
-                <div class="meine-loesung" id="uebung-1-aufgabe-3">
+                <input type="radio" name="div" id="HTML-aufgabe-3" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="HTML-aufgabe-3">
                     <h3><u> Quiz zu HTML</u></h3>
                     <div>
                         <p><b>Frage 1/6: Was ist HTML?</b></p>
@@ -180,8 +200,8 @@
                 </div>
             </section>
             <section class="loesung-4"> 
-                <input type="radio" name="div" id="uebung-1-aufgabe-4" value="loesung" >
-                <div class="meine-loesung" id="uebung-1-aufgabe-4">
+                <input type="radio" name="div" id="HTML-aufgabe-4" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="HTML-aufgabe-4">
                     <h3><u> Quiz zu HTML-Tags</u></h3>
                     <div>
                         <p><b>Frage 1/6: Was ist ein HTML-Tag?</b></p>
@@ -222,8 +242,8 @@
                 </div>
             </section>
             <section class="loesung-5"> 
-                <input type="radio" name="div" id="uebung-1-aufgabe-5" value="loesung" >
-                <div class="meine-loesung" id="uebung-1-aufgabe-5">
+                <input type="radio" name="div" id="HTML-aufgabe-5" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="HTML-aufgabe-5">
                     <h3><u> Lückentext zu HTML</u></h3>
                     <div class="html-luekentext">
                         &lt;!DOCTYPE html&gt;<br>
@@ -245,9 +265,9 @@
                 </div>
             </section>
             <section class="loesung-6" > 
-                <input type="radio" name="div" id="uebung-1-aufgabe-6" value="loesung" >
+                <input type="radio" name="div" id="HTML-aufgabe-6" onclick={addActiveClassAside()} class="loesung" >
                 
-                <div class="meine-loesung" id="uebung-1-aufgabe-6">
+                <div class="meine-loesung" id="HTML-aufgabe-6">
                     <h3><u> HTML-Literatur lesen und Fragen beantworten</u></h3>
                     <h4>Was ist HTML?</h4>
                     <p>
@@ -312,17 +332,17 @@
                 
             </section>
             <section class="loesung-7" > 
-                <input type="radio" name="div" id="uebung-1-aufgabe-7" value="loesung" checked> 
-                <div class="meine-loesung" id="uebung-1-aufgabe-7">
-                    <iframe src="https://hrbs-we-uebung-1.netlify.app" title="HTML Wireframe" ></iframe>
+                <input type="radio" name="div" id="HTML-aufgabe-7" onclick={addActiveClassAside()} class="loesung" checked> 
+                <div class="meine-loesung" id="HTML-aufgabe-7">
+                    <iframe src="/Uebungs/uebung-1/index.html" title="HTML Wireframe" ></iframe>
                 </div>
                 
             </section>
         <!-- lösung von Übung-1 beendet -->
         <!--lösung von Übung-2 startet-->
             <section class="Uebung2-loesung-1">
-                <input type="radio" name="div" id="uebung-2-aufgabe-1" value="loesung" >
-                <div class="meine-loesung" id="uebung-2-aufgabe-1">
+                <input type="radio" name="div" id="CSS-aufgabe-1" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="CSS-aufgabe-1">
                     <h3><u>Zuordnung der Homepage</u></h3>
                     <h4>Repository-URL Meiner Homepage</h4>
                     <p class="footer-correction">
@@ -331,8 +351,8 @@
                 </div>
             </section>
             <section class="Uebung2-loesung-2">
-                <input type="radio" name="div" id="uebung-2-aufgabe-2" value="loesung" >
-                <div class="meine-loesung" id="uebung-2-aufgabe-2">
+                <input type="radio" name="div" id="CSS-aufgabe-2" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="CSS-aufgabe-2">
                     <h3><u>CSS-Selektoren und CSS-Farben</u></h3>
                     <h4>RGB-Werte in HSL-Werte umrechnen:</h4>
                     <p class="footer-correction">
@@ -345,53 +365,53 @@
                 </div>
             </section>
             <section class="Uebung2-loesung-3">
-                <input type="radio" name="div" id="uebung-2-aufgabe-3" value="loesung" >
-                <div class="meine-loesung" id="uebung-2-aufgabe-3">
+                <input type="radio" name="div" id="CSS-aufgabe-3" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="CSS-aufgabe-3">
                     <h3><u>CSS-Positionierung</u></h3>
                     <h4>Lösung zum 2. Video:</h4>
-                    <iframe src="https://hide-and-show-css.netlify.app" frameborder="0" scrolling="no" ></iframe>
+                    <iframe src="/Uebungs/uebung-2/Hide and Show/index.html" frameborder="0" scrolling="no" ></iframe>
                 </div>
             </section>
             <section class="Uebung2-loesung-4">
-                <input type="radio" name="div" id="uebung-2-aufgabe-4" value="loesung" >
-                <div class="meine-loesung" id="uebung-2-aufgabe-4">
+                <input type="radio" name="div" id="CSS-aufgabe-4" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="CSS-aufgabe-4">
                     <h3><u>Wireframe mit HTML und CSS</u></h3>
                     <h4>HTML-Wireframe:</h4>
-                    <iframe src="https://wirefram-css.netlify.app" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="/Uebungs/uebung-2/wirefram-css/index.html" frameborder="0" scrolling="no"></iframe>
                 </div>
             </section>
              <!--lösung von Übung-2 beended-->
             <!--lösung von Übung-3 startet-->
             <section class="Uebung3-loesung-1">
-                <input type="radio" name="div" id="uebung-3-aufgabe-1" value="loesung" >
-                <div class="meine-loesung" id="uebung-3-aufgabe-1">
+                <input type="radio" name="div" id="RWD-aufgabe-1" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="RWD-aufgabe-1">
                     <h3><u>Responsiv mit Flexbox und Desktop-First</u></h3>
                     <h4>Desktop-First-Strategie:</h4>
-                    <iframe src="https://desktop-first-res.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebungs-3/Deskktop-first.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="Uebung3-loesung-2">
-                <input type="radio" name="div" id="uebung-3-aufgabe-2" value="loesung" >
+                <input type="radio" name="div" id="RWD-aufgabe-2" onclick={addActiveClassAside()} class="loesung" >
                 
-                <div class="meine-loesung" id="uebung-3-aufgabe-2">
+                <div class="meine-loesung" id="RWD-aufgabe-2">
                     <h3><u>Responsiv mit Grid und Mobile-First</u></h3>
                     <h4>Mobile-First:</h4>
-                    <iframe src="https://mobile-first-res.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebungs-3/Mobile-first.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="Uebung3-loesung-3">
-                <input type="radio" name="div" id="uebung-3-aufgabe-3" value="loesung" >
-                <div class="meine-loesung" id="uebung-3-aufgabe-3">
+                <input type="radio" name="div" id="RWD-aufgabe-3" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="RWD-aufgabe-3">
                     <h3><u>Wireframe responsive mit Grid</u></h3>
                     <h4>Landing-Page responsiv mit Grid:</h4>
-                    <iframe src="https://respnsive-grid.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebungs-3/grid.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
              <!--lösung von Übung-3 beended-->
              <!--lösung von Übung-4 startet-->
              <section class="Uebung4-loesung-1">
-                <input type="radio" name="div" id="uebung-4-aufgabe-1" value="loesung" >
-                <div class="meine-loesung" id="uebung-4-aufgabe-1">
+                <input type="radio" name="div" id="JS-aufgabe-1" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="JS-aufgabe-1">
                     <h3><u>Funktionen</u></h3>
                     <pre><code class="javascript">
     //Aufgabe 1
@@ -447,8 +467,8 @@
                 </div>
             </section>
             <section class="Uebung4-loesung-2">
-                <input type="radio" name="div" id="uebung-4-aufgabe-2" value="loesung" >
-                <div class="meine-loesung" id="uebung-4-aufgabe-2">
+                <input type="radio" name="div" id="JS-aufgabe-2" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="JS-aufgabe-2">
                     <h3><u>Objekte</u></h3>
                     <pre><code class="javascript">
     // Person-Prototyp
@@ -511,8 +531,8 @@
                 </div>
             </section>
             <section class="Uebung4-loesung-3">
-                <input type="radio" name="div" id="uebung-4-aufgabe-3" value="loesung" >
-                <div class="meine-loesung" id="uebung-4-aufgabe-3">
+                <input type="radio" name="div" id="JS-aufgabe-3" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="JS-aufgabe-3">
                     <h3><u>Fibonacci</u></h3>
                     <pre><code class="javascript">
                        
@@ -572,8 +592,8 @@
                 </div>
             </section>
             <section class="Uebung4-loesung-4">
-                <input type="radio" name="div" id="uebung-4-aufgabe-4" value="loesung" >
-                <div class="meine-loesung" id="uebung-4-aufgabe-4">
+                <input type="radio" name="div" id="JS-aufgabe-4" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="JS-aufgabe-4">
                     <h3><u>TopSort</u></h3>
                     <pre><code class="javascript">
 function topsort(abhaengigkeiten) {
@@ -634,49 +654,49 @@ function topsort(abhaengigkeiten) {
              <!--lösung von Übung-4 beended-->
              <!--lösung von Dom Started-->
              <section class="Dom-loesung-1">
-                <input type="radio" name="div" id="Dom-aufgabe-1" value="loesung" >
+                <input type="radio" name="div" id="Dom-aufgabe-1" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="Dom-aufgabe-1">
                     <h3><u>Dom Operation</u></h3>
                     <h4>Performanz-Messungen</h4>
-                    <iframe src="https://dom-operation-performance.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-5/DomPerfoemence/index.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="Dom-loesung-2">
-                <input type="radio" name="div" id="Dom-aufgabe-2" value="loesung" >
+                <input type="radio" name="div" id="Dom-aufgabe-2" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="Dom-aufgabe-2">
                     <h3><u>Rednerliste</u></h3>
                     <h4>Rednerliste mit Zeitmessung</h4>
-                    <iframe src="https://redner-list-e2f760.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-5/RednerListe/index.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="Dom-loesung-3">
-                <input type="radio" name="div" id="Dom-aufgabe-3" value="loesung" >
+                <input type="radio" name="div" id="Dom-aufgabe-3" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="Dom-aufgabe-3">
                     <h3><u>TopSort</u></h3>
                     <h4>TopSort als Web-App</h4>
-                    <iframe src="https://top-short-8a16b3.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-5/topShort/index.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <!--lösung von Dom beended-->
             <!--lösung von ES6 Started-->
             <section class="ES6-loesung-1">
-                <input type="radio" name="div" id="ES6-aufgabe-1" value="loesung" >
+                <input type="radio" name="div" id="ES6-aufgabe-1" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="ES6-aufgabe-1">
                     <h3><u>Klammerpaare</u></h3>
                     <h4> Überprüfen Klammerpaare</h4>
-                    <iframe src="https://kalamarpaare-982fec.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-6/Klamarpaare/index.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="ES6-loesung-2">
-                <input type="radio" name="div" id="ES6-aufgabe-2" value="loesung" >
+                <input type="radio" name="div" id="ES6-aufgabe-2" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="ES6-aufgabe-2">
                     <h3><u>Topologische Iterierbarkeit</u></h3>
                     <h4> Topologische Iterierbarkeit Mit ES6 Klasse</h4>
-                    <iframe src="https://topologische-sort-e636a0.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-6/TopologischeSort/index.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="ES6-loesung-3">
-                <input type="radio" name="div" id="ES6-aufgabe-3" value="loesung" >
+                <input type="radio" name="div" id="ES6-aufgabe-3" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="ES6-aufgabe-3">
                     <h3><u>Topologische Iterierbarkeit</u></h3>
                     <h4> Topologische Iterierbarkeit mittels Generator</h4>
@@ -752,7 +772,7 @@ function topsort(abhaengigkeiten) {
                 </div>
             </section>
             <section class="ES6-loesung-4">
-                <input type="radio" name="div" id="ES6-aufgabe-4" value="loesung" >
+                <input type="radio" name="div" id="ES6-aufgabe-4" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="ES6-aufgabe-4">
                     <h3><u>Proxy</u></h3>
                     <pre><code class="javascript">
@@ -845,7 +865,7 @@ function topsort(abhaengigkeiten) {
                 </div>
             </section>
             <section class="ES6-loesung-5">
-                <input type="radio" name="div" id="ES6-aufgabe-5" value="loesung" >
+                <input type="radio" name="div" id="ES6-aufgabe-5" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="ES6-aufgabe-5">
                     <h3><u>DeepCopy</u></h3>
                     <pre><code class="javascript">
@@ -874,32 +894,131 @@ function topsort(abhaengigkeiten) {
             <!--lösung von ES6 beended-->
             <!--lösung von ASJS Started-->
             <section class="ASJS-loesung-3">
-                <input type="radio" name="div" id="ASJS-aufgabe-3" value="loesung" >
+                <input type="radio" name="div" id="ASJS-aufgabe-3" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="ASJS-aufgabe-3">
                     <h3><u>WWW-Navigator</u></h3>
                     <h4>Responsiv WWW-Navigator mit HTML, CSS, and JS</h4>
-                    <iframe src="https://www-navigator-896246.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-8/WWW-Navigator/index.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <!--lösung von ASJS beended-->
             <!--lösung von SVG Started-->
             <section class="SVG-loesung-2">
-                <input type="radio" name="div" id="SVG-aufgabe-2" value="loesung" >
+                <input type="radio" name="div" id="SVG-aufgabe-2" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="SVG-aufgabe-2">
                     <h3><u>Balkendiagramm</u></h3>
                     <h4>Balkendiagramm mit HTML, Inline SVG, CSS</h4>
-                    <iframe src="https://barchart-svg-b5c038.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-9/Barchart/index.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="SVG-loesung-3">
-                <input type="radio" name="div" id="SVG-aufgabe-3" value="loesung" >
+                <input type="radio" name="div" id="SVG-aufgabe-3" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="SVG-aufgabe-3">
                     <h3><u>Interaktive SVG Grafik</u></h3>
                     <h4>Tic-Tac-Toe Spiel</h4>
-                    <iframe src="https://tic-tac-a0ba2c.netlify.app" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-9/Tic-Tac/index.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <!--lösung von SVG beended-->
+            <!--lösung von TypeScript Started-->
+            <section class="TS-loesung-1">
+                <input type="radio" name="div" id="TS-aufgabe-1" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="TS-aufgabe-1">
+                    <h3><u>Static</u></h3>
+                    <h4>Static classes in TypeScript</h4>
+                    <pre><code class="TypeScript">
+    // In TypeScript gibt es kein direktes Äquivalent zu statischen Klassen, da TypeScript in erster Linie den ECMAScript-Standards folgt und JavaScript selbst kein Konzept für statische Klassen hat.
+
+    // Mit TypeScript können Sie jedoch mithilfe statischer Eigenschaften und Methoden innerhalb einer Klasse eine ähnliche Funktionalität erreichen.
+
+    // Hier ist ein Beispiel für die Erstellung einer TypeScript-Klasse mit statischen Mitgliedern:
+                
+    class StaticExample {
+        static staticProperty: number = 42;
+                    
+            static staticMethod(): void {
+                console.log("Static method called");
+            }
+    }
+                    
+        // Auf statische Mitglieder zugreifen:
+    console.log(StaticExample.staticProperty);
+    StaticExample.staticMethod();</code></pre>
+                </div>
+            </section>
+            <section class="TS-loesung-2">
+                <input type="radio" name="div" id="TS-aufgabe-2" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="TS-aufgabe-2">
+                    <h3><u>Fehler</u></h3>
+                    <h4>Fehler finden mit TypeScript</h4>
+                    <pre><code class="TypeScript">
+    const add = (x: number, y: number): number => x + y;
+    const equals = (x: any, y: any): boolean => x === y;
+    
+    console.log(add(1, 2));
+    console.log(add(true, true)); // Dadurch wird ein TypeScript-Fehler generiert
+    console.log(add(true, false)); // Dadurch wird ein TypeScript-Fehler generiert
+    const x: number = 1;
+    const y: number = 1;
+    console.log(add(equals(x, y), equals(y, x))); 
+
+    // Fehler tritt auf, weil „add“ Zahlenparameter erwartet, „equals(x, y)“ und „equals(y, x)“ jedoch einen booleschen Wert zurückgeben.
+                    </code></pre>
+                </div>
+            </section>
+            <!--lösung von TypeScript beended-->
+            <!--lösung von Node JS Started-->
+            <section class="Node-loesung-1">
+                <input type="radio" name="div" id="Node-aufgabe-1" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="Node-aufgabe-1">
+                    <h3><u>Webserver</u></h3>
+                    <h4>Lokaler Webserver mit NodeJS</h4>
+                    <pre><code class="javascript">
+        // HTTP-Modul beladen
+        const http = require('http');
+        const url = require('url');
+        
+        // Port und Hostname(IP address)
+        const port = 3000;
+        const hostname = '127.0.0.1';
+        
+        
+        // Konfigurieration des HTTP-Servers
+        const server = http.createServer((req, res) => {
+            
+            const { pathname, query } = url.parse(req.url, true);
+        
+            //Path überprüfen / Schnittstelle
+            if (pathname === '/greet' && req.method === 'GET') {
+        
+            // Zugreifen die Name aus den Query-Parametern
+            const name = query.name || 'Unbekannt';
+        
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/plain' );
+            res.end(`Hallo ${name}!`);
+            } else {
+        
+            res.statusCode = 404;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end('404 Not Found');
+            }
+        });
+        
+        server.listen(port, hostname , () => {
+            console.log(`Server läuft unter ${hostname}:${port}`);
+        });
+        
+        /*
+        * Um mehr über Nodejs server zu erfahren (https://nodejs.org/api/synopsis.html)
+        * Der Client sendet "Mika", der Name als Query-Parametern und der Server wird mit "Hallo Mika!" antworten.
+        * Zum Beispiel:(http://127.0.0.1:3000/greet?name=Mika)
+            */
+                    </code></pre>
+                </div>
+            </section>
+            <!--lösung von Node JS beended-->
+
         </article>  
         
     </main>
@@ -911,5 +1030,6 @@ function topsort(abhaengigkeiten) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
     <script>hljs.highlightAll();</script>
+    <script src="homePage.js"></script>
 </body>
 </html>

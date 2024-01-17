@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .error {
+      background-color: red;
+      border: 2px solid red;
+    }
+  </style>
+  <title>Überprüfung Klammerpaare</title>
+</head>
+<body>
+  <h1>Überprüfung Klammerpaare</h1>
+  <label for="inputString">Bitte String Einfügen:</label>
+  <input type="text" id="inputString" oninput="checkBrackets()">
+  <!-- dynamisch ergebnis -->
+  <p id="result"> </p>
+
+  <script>
+    function checkBrackets() {
+      const inputElement = document.getElementById('inputString');
+      const resultElement = document.getElementById('result');
+      const inputString = inputElement.value;
+
+      
+      const bracketPairs = {
+        '[': ']',
+        '(': ')',
+        '{': '}'
+        // Fügen Sie nach Bedarf weitere Paare hinzu
+      };
+
+      const stack = [];
+      
+      for (let i = 0; i < inputString.length; i++) {
+        const char = inputString[i];
+        if (bracketPairs[char]) {
+          
+          stack.push(char);
+        } else if (Object.values(bracketPairs).includes(char)) {
+          
+          if (stack.length === 0 || bracketPairs[stack.pop()] !== char) {
+        
+            break;
+          }
+        }
+      }
+
+      const isValid = stack.length === 0;
+
+      // Das Eingabefeld der Zeichenkette soll rot gefärbt werden, wenn es ein Klammerpaar gibt, das falsch geschachtelt ist.
+      inputElement.classList.toggle('error', !isValid);
+      
+      if (isValid) {
+        resultElement.textContent = 'Ergebnis: Klammerpaare sind korrekt geschachtelt';
+        resultElement.style='';
+      } else {
+        resultElement.textContent = 'Ergebnis: Klammerpaare sind nicht korrekt geschachtelt';
+        resultElement.style.color= 'red';
+      }
+
+      // test
+      console.assert(isValid, 'Brackets are not correctly nested.');
+    }
+  </script>
+</body>
+</html>

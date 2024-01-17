@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concatenating Text-Dateien</title>
+</head>
+<body>
+
+    <script>
+        async function fetchTextDateien(datei) {
+            const response = await fetch(datei);
+          return await response.text();
+        }
+        
+        // konkatenieren
+        function concatenateTextDateien(a, b) {
+          const linesA = a.split('\n');
+          const linesB = b.split('\n');
+          return linesA.map((line, idx) => line +' '+ linesB[idx]).join('\n');
+        }
+
+        // Mit Async Await 
+        async function DisplayDateien() {
+            try {
+                const dateiA = await fetchTextDateien('./A.text');
+                const dateiB = await fetchTextDateien('./B.text');
+
+                    const concatenatedDateien = concatenateTextDateien(dateiA, dateiB);
+                    const lines = concatenatedDateien.split('\n');
+
+                    lines.forEach(line => {
+                        const paragraph = document.createElement('p');
+                        paragraph.textContent = line;
+                        document.body.appendChild(paragraph);
+                    });
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        DisplayDateien();
+      </script>
+
+</body>
+</html>

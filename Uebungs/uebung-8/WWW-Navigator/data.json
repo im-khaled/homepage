@@ -1,0 +1,50 @@
+{
+    "html": {
+      "headings": {
+        "content": "Die Überschrift-Elemente bestehen aus sechs verschiedenen Levels. Das 'h1'-Element ist die Überschrift mit der höchsten Gewichtung und das 'h6'-Element mit der kleinsten. Ein Überschriften-Element beschreibt das Thema des Bereiches, welcher der Überschrift folgt. Überschriften können auch verwendet werden, um ein Inhaltsverzeichnis für ein Dokument automatisch zu erstellen.",
+        "references": [
+          "https://developer.mozilla.org/de/docs/Web/HTML/Element/h1-h6"
+        ]
+      },
+      "paragraph": {
+        "content": "Das 'p'-Element erzeugt einen Absatz, den zusammenhängenden Abschnitt eines längeren Textes. In HTML kann ein 'p'-Element jedoch für jedwede Art von zu gruppierendem, zusammenhängendem Inhalt genutzt werden, zum Beispiel Bilder oder Formularfelder.",
+        "references": [
+          "https://developer.mozilla.org/de/docs/Web/HTML/Element/p"
+        ]
+      }
+    },
+    "css": {
+      "selectors": {
+        "content": "The CSS selectors module defines the patterns to select elements to which a set of CSS rules are then applied along with their specificity. The CSS selectors module provides us with more than 60 selectors and five combinators. Other modules provide additional pseudo-class selectors and pseudo-elements.",
+        "references": [
+          "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors"
+        ]
+      },
+      "colors": {
+        "content": "Der CSS Datentyp Color beschreibt eine Farbe im sRGB Farbraum. Eine Farbe kann auf eine von drei Arten beschrieben werden: Schlüsselworte, rgb und rgba, hsl und hsla. ...",
+        "references": [
+          "https://developer.mozilla.org/de/docs/Web/CSS/Farben"
+        ]
+      }
+    },
+    "javascript": {
+      "fetch": {
+        "content": "The fetch() method of the WindowOrWorkerGlobalScope mixin starts the process of fetching a resource from the network, returning a promise which is fulfilled once the response is available. The promise resolves to the Response object representing the response to your request. The promise does not reject on HTTP errors — it only rejects on network errors. You must use then handlers to check for HTTP errors. WindowOrWorkerGlobalScope is implemented by both Window and WorkerGlobalScope, which means that the fetch() method is available in pretty much any context in which you might want to fetch resources. A fetch() promise only rejects when a network error is encountered (which is usually when there’s a permissions issue or similar). A fetch() promise does not reject on HTTP errors (404, etc.). Instead, a then() handler must check the Response.ok and/or Response.status properties.The fetch() method is controlled by the connect-src directive of Content Security Policy rather than the directive of the resources it's retrieving.",
+        "references": [
+          "https://udn.realityripple.com/docs/Web/API/WindowOrWorkerGlobalScope/fetch"
+        ]
+      },
+      "promise": {
+        "content": "A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.",
+        "references": [
+          "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+        ]
+      },
+      "async": {
+        "content": "The async function declaration creates a binding of a new async function to a given name. The await keyword is permitted within the function body, enabling asynchronous, promise-based behavior to be written in a cleaner style and avoiding the need to explicitly configure promise chains.",
+        "references": [
+          "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+        ]
+      }
+    }
+  }

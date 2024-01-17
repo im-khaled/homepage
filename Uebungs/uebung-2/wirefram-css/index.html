@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap');
+        
+        *{
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+        }
+        .survey-form{
+            width: 45rem;
+            height: auto;
+            background-color: #a9d7d1;
+            text-align: center;
+            padding: 20px 20px 15px 20px;
+        }
+        h1{
+            margin-bottom: 20px;
+        }
+        .form{
+            width: 100%;
+            background-color: snow;
+            padding: 15px 15px 10px 15px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            text-align: center;
+        }
+        h4{
+            margin-bottom: 20px;
+        }
+        p{
+            font-weight: 600;
+            margin-bottom: 1rem;
+            
+        }
+        select{
+            
+            padding: 2px 0;
+            margin-bottom: 1rem;
+            
+        }
+        input{
+            
+            margin-bottom: 0.8rem;
+            
+        }
+        table{
+            margin-left: 4.5rem;
+        }
+        td:nth-child(odd){
+         text-align:end;
+         padding-inline-end: 1rem;
+        }
+        td:nth-child(even){
+        text-align: start;
+        padding: 0.6rem 0;
+        }
+        .option-selection{
+            padding-bottom: 1.6rem;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="survey">
+        <div class="survey-form">
+            <h1>Survey Form</h1>
+            <form class="form">
+                <h4>Let us know how we can improve freeCodeCamp</h4>
+                <table>
+                    <tr>
+                        <td class="td1">
+                            <p>*Name: </p>
+                            <p>*Email: </p>
+                            <p>*Age: </p>
+                        </td>
+                        <td class="td2">
+                            <input type="text" placeholder="Enter Your Name"> <br>
+                            <input type="text" placeholder="Enter Your Email"> <br>
+                            <input type="text" placeholder="Age"> <br>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Which option best describes your current role?</p>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="option-selection">How likely is that you would recommend <br> freeCodeCamp to a Friend?</p>
+                        </td>
+                        <td>
+                            <input  type="radio"id="button-1" name="recommendation-button" >
+                                <label  for="button-1"> Definitely</label> <br>
+                                <input  type="radio"id="button-2" name="recommendation-button">
+                                <label for="button-2"> Maybe</label> <br>
+                                <input  type="radio"id="button-3" name="recommendation-button" checked >
+                                <label for="button-3"> Not Sure</label> <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>What do you like most in FCC?</p>
+                        </td>
+                        <td>
+                            <select name="" id="">
+                                <option value="N/A">Select an option</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Others">Others</option>
+                            </select> <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="option-selection">Things that should be improved in the future<br>(Check all that apply):</p>
+                        </td>
+                        <td>
+                                <input  type="checkbox"id="button-1" name="recommendation-button" checked>
+                                <label  for="button-1"> Front-end Projects</label> <br>
+                                <input  type="checkbox"id="button-2" name="recommendation-button" checked>
+                                <label for="button-2"> Back-end Projects</label> <br>
+                                <input  type="checkbox"id="button-3" name="recommendation-button"  >
+                                <label for="button-3"> Data Visualization</label><br>
+                        </td>
+                    </tr>
+                </table>   
+            </form>
+    </div>
+    </section>
+    
+</body>
+</html>

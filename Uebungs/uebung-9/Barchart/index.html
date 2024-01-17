@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #chart-container {
+            padding: 8px;
+            padding-bottom: 0;
+            width: 500px;
+            height: 300px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .info{
+            padding-left: 20px;
+        }
+        .bar {
+            
+            transition: width 0.5s ease-in-out, fill 0.3s ease-in-out;
+        }
+
+        text {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            fill: #333;
+            text-anchor: middle;
+        }
+
+        .value-label {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            fill: #333;
+            text-anchor: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="info">
+    <h2>Realisierter_Stromverbrauch_01.12.2023_05.12.2023 (Germany)</h2>
+    <h3>Gesamt (Netzlast) [MWh] Berechnete Auflösungen</h3>
+    <p>(z.B. 1.480.951 MWh ≈ 1.48 Millionen)</p>
+
+</div>
+<div id="chart-container"></div>
+
+<script>
+    // data in JSON format (Realisierter_Stromverbrauch_01.12.2023_05.12.2023 (Germany))
+    const data = [
+        { label: '01.12.2023', value: 1.48, color: 'steelblue' },
+        { label: '02.12.2023', value: 1.29, color: 'lightsalmon' },
+        { label: '03.12.2023', value: 1.22, color: 'lightgreen' },
+        { label: '04.12.2023', value: 1.50, color: 'lightpink' },
+        { label: '05.12.2023', value: 1.52, color: 'lightcoral' },
+    ];
+
+    // Erstellung das horizontale Balkendiagramm
+    function createHorizontalBarChart(data) {
+        const chartContainer = document.getElementById('chart-container');
+
+        let maxValue = Math.max(...data.map(item => item.value));
+            
+
+        // SVG-Element erstellen
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', '100%');
+        svg.setAttribute('height', '100%');
+
+        // Erstellung Balken und hängen Sie sie an die SVG-Datei an
+        data.forEach((item, index) => {
+            const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            bar.setAttribute('class', 'bar');
+            bar.setAttribute('x', '0');
+            bar.setAttribute('y', (index * 100 / data.length) + '%');
+            bar.setAttribute('width', '0');
+            bar.setAttribute('height', 90 / data.length + '%');
+            bar.setAttribute('fill', item.color);
+            bar.addEventListener('mouseover', () => {
+                bar.setAttribute('fill', 'orange');
+            });
+            bar.addEventListener('mouseout', () => {
+                bar.setAttribute('fill', item.color);
+            });
+
+            // SVG-Text (label)
+            const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            text.setAttribute('x', '10%');
+            text.setAttribute('style', 'font-size:1rem;');
+            text.setAttribute('y', (index * 100 / data.length) + 50 / data.length + '%');
+            text.textContent = item.label;
+
+            // SVG-Text (value)
+            const valueLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            valueLabel.setAttribute('class', 'value-label');
+            valueLabel.setAttribute('x', ((item.value / maxValue) * 100-8) + '%');
+            valueLabel.setAttribute('y', (index * 100 / data.length) + 50 / data.length + '%');
+            valueLabel.setAttribute('style', 'font-size:1rem;');
+            valueLabel.textContent = item.value + ' Mio.';
+
+            svg.appendChild(bar);
+            svg.appendChild(text);
+            svg.appendChild(valueLabel);
+
+            // Animation
+            setTimeout(() => {
+                bar.setAttribute('width', (item.value / maxValue) * 100 + '%');
+            }, 100);
+        });
+
+        chartContainer.appendChild(svg);
+    }
+
+    // aufrufen horizontale Balkendiagramm
+    createHorizontalBarChart(data);
+
+</script>
+
+</body>
+</html>

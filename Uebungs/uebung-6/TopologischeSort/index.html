@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topologische Iterierbarkeit</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            margin: auto 50px;
+        }
+        h1{
+            margin: 50px 10px;
+        }
+        #task-liste{
+            margin-bottom: 10px;
+            margin-left:10px;
+        }
+        .btn{
+            
+            margin-left: 10px;
+        }
+        #result{
+            margin-top: 20px;
+        }
+        textarea{
+            padding: 10px;
+        }
+        p{
+            width: 60vw;
+            margin: 20px 10px;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+<body>
+    <h1>Topologische Iterierbarkeit!</h1>
+    <p>In jedem Projekt fallen Aufgaben (Tasks) an. Zwischen den Aufgaben gibt es paarweise Vorrangrelationen. Z.B. kann Task2 von Task1 abhängen, d.h. erst muss Task1 fertig sein, bevor Task2 starten kann, weil es dessen Ergebnisse benötigt. Tasks können auch unabhängig voneinander sein und parallel ablaufen.</p>
+    <p><strong>Bitte formulieren Sie Ihre Vorrangrelationen wie folgt:[["schlafen","studieren"],["essen","studieren"],["studieren","prüfen"]]</strong></p>
+    <textarea class="text-fild" name="relation" id="task-liste" cols="60" rows="5"></textarea><br>
+    <button onclick="addAbhaengigkeiten()" class="btn">Hinzufügen</button>
+    <div id="result">
+
+    </div>
+
+    <script>
+
+        //ES6-Klasse 
+        class Vorrang {
+            
+            constructor(relations) {
+            this.graph = new Map();
+            this.inDegree = new Map();
+            this.sortedOrder = [];
+
+            // Erstelle den Graphen und berechne die inDegreeGraph
+            relations.forEach(([node1, node2]) => {
+                if (!this.graph.has(node1)) {
+                this.graph.set(node1, new Set());
+                this.inDegree.set(node1, 0);
+                }
+                if (!this.graph.has(node2)) {
+                this.graph.set(node2, new Set());
+                this.inDegree.set(node2, 0);
+                }
+        
+                this.graph.get(node1).add(node2);
+                this.inDegree.set(node2, this.inDegree.get(node2) + 1);
+            });
+            }
+            
+            // StudentenLeben Vorrang berechnen function
+            calculateTopologicalOrder() {
+            const result = [];
+        
+            while (result.length < this.graph.size) {
+                const candidates = Array.from(this.inDegree.entries())
+                .filter(([node, inDegree]) => inDegree === 0 && !result.includes(node))
+                .map(([node]) => node);
+        
+                const node = candidates[0];
+                result.push(node);
+        
+                if (this.graph.has(node)) {
+                this.graph.get(node).forEach(neighbor => {
+                    this.inDegree.set(neighbor, this.inDegree.get(neighbor) - 1);
+                });
+                }
+            }
+        
+            this.sortedOrder = result;
+            return result;
+            }
+        }
+        
+        // Test
+        const studentenLeben = new Vorrang([
+            ["schlafen", "studieren"],
+            ["essen", "studieren"],
+            ["studieren", "prüfen"],
+            ["vorbereiten", "prüfen"]
+        ]);
+        
+        const lebenOrder = studentenLeben.calculateTopologicalOrder();
+        
+        for (const next of lebenOrder) {
+            console.log(next);
+        }
+    
+        console.assert(lebenOrder.indexOf("schlafen") < lebenOrder.indexOf("essen"), " 'essen' sollte vor 'studieren' liegen");
+        console.assert(lebenOrder.indexOf("essen") < lebenOrder.indexOf("studieren"), "'schlafen' sollte vor 'studieren' liegen");
+        console.assert(lebenOrder.indexOf("studieren") < lebenOrder.indexOf("vorbereiten"), "'studieren' sollte vor 'pruefen' liegen");
+        console.assert(lebenOrder.indexOf("vorbereiten") < lebenOrder.indexOf("prüfen"), "'studieren' sollte vor 'pruefen' liegen");
+    
+        const addAbhaengigkeiten = () => {
+            const resultArea = document.getElementById('result')
+            if(resultArea.innerHTML){
+                resultArea.innerHTML=''
+            }
+            try{
+                const list = document.getElementById('task-liste')
+                
+                const taskListe = list.value;
+                const parseTaskListe = JSON.parse(taskListe)
+           
+                if(parseTaskListe){
+    
+                    const studentenLeben = new Vorrang(parseTaskListe);
+        
+                    const lebenOrder = studentenLeben.calculateTopologicalOrder();
+                    
+                    for(const next of lebenOrder){
+                        
+                        const ul = document.createElement('ul');
+                        const list = document.createElement('li');
+                                list.textContent= next;
+                        ul.appendChild(list);
+    
+                        resultArea.appendChild(ul);
+                    }
+                    // list.value='[...]';
+                }
+            }
+            catch{
+                alert(Error.massage)
+            }
+           
+            
+            
+        }
+    
+        window.addEventListener('keydown', (event) => {
+            const list = document.getElementById('task-liste');
+            const taskListe = list.value;
+            if (event.key === 'Enter') {
+              if (taskListe) {
+                addAbhaengigkeiten();
+              }
+            }
+          });
+    
+        </script>
+</body>
+</html>

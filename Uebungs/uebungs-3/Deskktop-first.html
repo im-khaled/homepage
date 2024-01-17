@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop-First</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            margin: 1em 2.5vw;
+        }
+        header{
+            width: 95vw;
+            height: 15rem;
+            background-color: red;
+        }
+        main{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1em;
+        }
+        .left{
+            width: 20vw;
+            height: 65vh;
+            background-color: #2ced27;
+        }
+        .content{
+            width: 52vw;
+            height: 65vh;
+            background-color: blue;
+        }
+        .right{
+            width: 20vw;
+            height: 65vh;
+            background-color:#ea3efe;
+        }
+
+        /* --------------------------------
+                for tablet devices 
+        ----------------------------------*/
+        @media screen and (min-width: 768px ) and (max-width:991px){
+
+         
+            main{
+                flex-wrap: wrap;
+            }
+            header{
+            height: 15rem;
+            background-color: red;
+        }
+            .left{
+                width: 30vw;
+                height: 100rem;
+                background-color: #2ced27;
+            }
+            .content{
+                width: 62vw;
+                height: 100rem;
+                background-color: blue;
+            }
+            .right{
+                width: 95vw;
+                height: 15rem;
+                background-color:#ea3efe;
+                margin-top: 1em;
+            }
+                
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        /* -------------------------------
+                for mobile devices
+        ---------------------------------*/
+        @media screen and (max-width: 768px ){
+
+            body{
+                margin: 0;
+            }
+            header{
+                width: 100%;
+                height: 15rem;
+                background-color: red;
+            }
+            main{
+                flex-direction: column;
+                margin-top: 0;
+            }
+            
+            .left{
+                width: 100vw;
+                height: 15rem;
+                background-color: #2ced27;
+            }
+            .content{
+                width: 100vw;
+                height: 150rem;
+                background-color: blue;
+            }
+            .right{
+                width: 100vw;
+                height: 15rem;
+                background-color:#ea3efe;
+                
+            }
+                
+        }
+
+    </style>
+</head>
+<body>
+    <header class="navbar">
+    </header>
+    <main>
+        <aside class="left"></aside>
+        <article class="content"></article>
+        <aside class="right"></aside>
+    </main>
+</body>
+</html>

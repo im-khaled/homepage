@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Operations</title>
+</head>
+<body style="margin: 40px;">
+    <h2>
+        Dom Element
+        <style>
+           h2 {
+           background-color: red;
+           }
+        </style>
+        <span>Performance Test</span>
+     </h2>
+     <table border="1" style="margin-top: 5px;">
+        <tr>
+          <th>Operation</th>
+          <th>Duration (milliseconds)</th>
+        </tr>
+      </table>
+
+    <script>function measurePerformance(operation) {
+        const element = document.querySelector('h2');
+
+        // start time
+        const startTime = performance.now();
+        operation(element);
+        const endTime = performance.now();
+        // End time
+
+        // Calculating the duration
+        const duration = endTime - startTime;
+        
+        const table = document.querySelector('table');
+        const newRow = table.insertRow(-1);
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        cell1.textContent = operation.name;
+        cell2.textContent = duration.toFixed(8);
+        }
+
+        // Verschiedene operations
+        const innerHTMLOperation = (element) => {
+        element.innerHTML = 'DOM-Operationen';
+        };
+
+        const innerTextOperation = (element) => {
+        element.innerText = 'DOM-Operationen';
+        };
+
+        const textContentOperation = (element) => {
+        element.textContent = 'DOM-Operationen';
+        };
+
+        const outerHTMLOperation = (element) => {
+        element.outerHTML = '<div>DOM-Operationen</div>';
+        };
+
+        // Performanz-Messungen
+        measurePerformance(innerHTMLOperation);
+        measurePerformance(innerTextOperation);
+        measurePerformance(textContentOperation);
+        measurePerformance(outerHTMLOperation);</script>
+</body>
+</html>

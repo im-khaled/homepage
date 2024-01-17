@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopShort</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            margin: auto 50px;
+        }
+        h1{
+            margin: 50px 10px;
+        }
+        #task-liste{
+            margin-bottom: 10px;
+            margin-left:10px;
+        }
+        .btn{
+            
+            margin-left: 10px;
+        }
+        #result{
+            margin-top: 20px;
+        }
+        textarea{
+            padding: 10px;
+        }
+        p{
+            width: 60vw;
+            margin: 20px 10px;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+<body>
+    <h1>TopSort App!</h1>
+    <p>In jedem Projekt fallen Aufgaben (Tasks) an. Zwischen den Aufgaben gibt es paarweise Abhängigkeiten. Z.B. kann Task2 von Task1 abhängen, d.h. erst muss Task1 fertig sein, bevor Task2 starten kann, weil es dessen Ergebnisse benötigt. Tasks können auch unabhängig voneinander sein und parallel ablaufen.</p>
+    <p><strong>Bitte formulieren Sie Ihre Abhängigkeit wie folgt:[["schlafen","studieren"],["essen","studieren"],["studieren","prüfen"]]</strong></p>
+    <textarea class="text-fild" name="relation" id="task-liste" cols="60" rows="5">[...]</textarea><br>
+    <button onclick="addAbhaengigkeiten()" class="btn">hinzufügen</button>
+    <div id="result">
+
+    </div>
+
+    <script>function topsort(abhaengigkeiten) {
+        const graph = new Map();
+        const sortedGraph = new Map();
+        const ergebnis = [];
+        
+        // Erstelle den Graphen und berechne die sortedGraph
+        for (const [von, nach] of abhaengigkeiten) {
+            if (!graph.has(von)) {
+            graph.set(von, []);
+            }
+            graph.get(von).push(nach);
+            
+            sortedGraph.set(nach, (sortedGraph.get(nach) || 0) + 1);
+            console.log(sortedGraph.get(nach))
+        }
+        
+        // Initialisiere eine queue mit Knoten
+        const queue = [];
+        for (const knoten of graph.keys()) {
+            if (!sortedGraph.has(knoten)) {
+            queue.push(knoten);
+            }
+        }
+        
+        // Führe die topologische Sortierung
+        while (queue.length > 0) {
+            const knoten = queue.shift();
+            ergebnis.push(knoten);
+        
+            if (graph.has(knoten)) {
+            for (const nachbar of graph.get(knoten)) {
+                sortedGraph.set(nachbar, sortedGraph.get(nachbar) - 1);
+        
+                if (sortedGraph.get(nachbar) === 0) {
+                queue.push(nachbar);
+                }
+            }
+            }
+        }
+        
+        return ergebnis;
+        }
+        
+        // Test
+        const abhaengigkeiten = [["schlafen", "studieren"], ["essen", "studieren"], ["studieren", "pruefen"],["vorbereiten", "pruefen"]];
+        const ergebnis = topsort(abhaengigkeiten);
+    
+        console.assert(ergebnis.indexOf("essen") < ergebnis.indexOf("studieren"), "Test failed: 'essen' sollte vor 'studieren' liegen");
+        console.assert(ergebnis.indexOf("schlafen") < ergebnis.indexOf("studieren"), "Test failed: 'schlafen' sollte vor 'studieren' liegen");
+        console.assert(ergebnis.indexOf("studieren") < ergebnis.indexOf("pruefen"), "Test failed: 'studieren' sollte vor 'pruefen' liegen");
+        console.assert(ergebnis.indexOf("vorbereiten") < ergebnis.indexOf("pruefen"), "Test failed: 'studieren' sollte vor 'pruefen' liegen");
+        // console.log("Topologische Sortierung:", ergebnis);
+    
+        const addAbhaengigkeiten = () => {
+            const resultArea = document.getElementById('result')
+            if(resultArea.innerHTML){
+                resultArea.innerHTML=''
+            }
+            try{
+                const list = document.getElementById('task-liste')
+                
+                const taskListe = list.value;
+                const parseTaskListe = JSON.parse(taskListe)
+           
+                if(parseTaskListe){
+    
+                    const ergebnis = topsort(parseTaskListe);
+                    // console.log("Topologische Sortierung:", ergebnis);
+                    let i = 0;
+                    for(let x of ergebnis){
+                        i++;
+                        const ul = document.createElement('ul');
+                        const list = document.createElement('li');
+                                list.textContent= `${i} ${x}`;
+                        ul.appendChild(list);
+    
+                        resultArea.appendChild(ul);
+                    }
+                    list.value='[...]';
+                }
+            }
+            catch{
+                alert(Error.massage)
+            }
+           
+            
+            
+        }
+    
+        window.addEventListener('keydown', (event) => {
+            const list = document.getElementById('task-liste');
+            const taskListe = list.value;
+            if (event.key === 'Enter') {
+              if (taskListe) {
+                addAbhaengigkeiten();
+              }
+            }
+          });
+    
+        </script>
+</body>
+</html>

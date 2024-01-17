@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rednerliste</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            margin: auto 50px;
+        }
+        h1{
+            font-weight: 600;
+            padding: 2rem 0;
+        }
+        h2{
+            display: inline;
+        }
+        button{
+            margin-bottom: 0.5rem;
+            margin-left: 0.5rem;
+        }
+        .list-item{
+            font-size:large;
+            font-weight: 700;
+            display: inline-block;
+            padding: 0.5rem;
+            margin-left: 2rem;
+
+        }
+        #redner-input{
+            margin-left: 5px;
+            padding: 5px;
+            border: 1px solid gray;
+        }
+        #redner-bereich{
+            padding: 1rem 0 1rem 1.6rem;
+        }
+        .add-button{
+          padding: 5px;
+        }
+    </style>
+</head>
+<body id="body">
+    <h1>Rednerliste</h1>
+    <h2>Neuer Redner:</h2>
+    <input type="text" id="redner-input" placeholder="Redner Name">
+    <button class="add-button" onclick="addredner()">Hinzufügen</button>
+
+    <div id="redner-bereich">
+        <!-- Redner wird hier dynamisch hinzugefügt -->
+    </div>
+    <script>
+        let aktuellRedner= null;
+        let i = 0;
+        let j = 0;
+        let rednerNummer = 1;
+
+        //Beginn der Zeit nach neuem Redner
+        function startTimer(redner) {
+          redner.timer = setInterval(() => {
+            redner.seconds++;
+            if (redner.seconds === 60) {
+              redner.seconds = 0;
+              redner.minutes++;
+            }
+            if (redner.minutes === 60) {
+              redner.minutes = 0;
+              redner.hours++;
+            }
+            updateDisplay();
+          }, 1000);
+          redner.isRunning = true;
+        }
+
+        //Uhr wird gestoppt
+        function stopTimer(redner) {
+          clearInterval(redner.timer);
+          redner.isRunning = false;
+        }
+
+        //Aktualisierung der Anzeigezeit 
+        function updateDisplay() {
+          for (const redner of rednerListe) {
+            const stopwatchSpan = document.getElementById(`stopwatch-${redner.name}`);
+            stopwatchSpan.textContent = `${pad(redner.hours)}:${pad(redner.minutes)}:${pad(redner.seconds)}`;
+          }
+        }
+
+        // Aktualisierung der button textContent
+        function updateButton(){
+          const allButton = document.querySelectorAll('#redner-bereich button')
+          allButton.forEach(button => button.textContent='Start!');
+        }
+      
+        function pad(value) {
+          return value < 10 ? `0${value}` : value;
+        }
+      
+        const rednerListe = [];
+      
+      // Änderung des aktuellen Redners
+        function toggleredner(redner) {
+          aktuellRedner = redner;
+          if (aktuellRedner) {
+            startTimer(aktuellRedner);
+            
+            rednerListe.filter(spk => {
+              
+              if(aktuellRedner !==spk){
+                stopTimer(spk);
+              }
+            
+            })
+          } 
+          updateDisplay();
+          updateButton();
+        }
+
+        //Steuern der einzelne Rede-Zeit
+        function toggleTimer(id){
+
+          rednerListe.filter(spk => {
+              
+              if(id === spk.id){
+                if(spk.isRunning){
+                  stopTimer(spk);
+                }
+                else{
+                  toggleredner(spk);
+                  
+                }
+              }
+            
+            })
+      
+        }
+
+        let btnText ={
+          value:null
+        }
+
+        // Änderung der button textContent
+        function btnset(id){
+              
+              rednerListe.filter(spk => {
+              if( id === spk.id){
+                if(spk.isRunning){
+                  btnText.value = "Stopp!"
+                }
+                else
+                  {btnText.value = "Start!"}
+              }
+            
+              })
+            
+            }  
+
+        // neu redner hinzufügen
+        function addredner() {
+          const input = document.getElementById('redner-input');
+          const name = input.value;
+          
+      
+          if (name) {
+            const neuredner = {
+              name,
+              seconds: 0,
+              minutes: 0,
+              hours: 0,
+              isRunning: false,
+              timer: null,
+              id:i++,
+            };
+            toggleredner(neuredner);
+            rednerListe.push(neuredner);
+      
+            const rednerBereich = document.getElementById('redner-bereich');
+            const div = document.createElement('div');
+            div.classList.add('redner-container');
+      
+            const listItem = document.createElement('li');
+            listItem.classList.add('list-item');
+            listItem.textContent = `${rednerNummer++} ${neuredner.name}`;
+            div.appendChild(listItem);
+      
+            const stopwatchSpan = document.createElement('span');
+            stopwatchSpan.classList.add('stopwatch');
+            stopwatchSpan.id = `stopwatch-${neuredner.name}`;
+            stopwatchSpan.textContent = '00:00:00';
+            div.appendChild(stopwatchSpan);
+      
+            const startStopButton = document.createElement('button');
+            startStopButton.id=`${j++}`;
+            
+      
+            startStopButton.textContent = 'Stopp!';
+            startStopButton.addEventListener('click', (event) => {
+              event.preventDefault();
+              const id = event.target.id;
+              const intID = parseInt(id);
+              toggleTimer(intID)
+              btnset(intID)
+              
+              startStopButton.textContent = `${btnText.value? btnText.value : 'start/stopp'}`;
+              
+            });
+            div.appendChild(startStopButton);
+      
+            rednerBereich.appendChild(div);
+            input.value = ''; 
+          }
+        }
+        window.addEventListener('keydown', (event) => {
+          const input = document.getElementById('redner-input');
+          const name = input.value;
+          if (event.key === 'Enter') {
+            if (name) {
+              addredner(input);
+            }
+          }
+        });
+      
+        updateDisplay();  // Initial display
+      </script>
+</body>
+</html>

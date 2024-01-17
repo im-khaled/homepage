@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile-First</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+        }
+        header{
+            width: 100%;
+            height: 15rem;
+            background-color: red;
+        }
+        main{
+            display: grid;
+        }
+            
+        .left{
+            width: 100vw;
+            height: 15rem;
+            background-color: #2ced27;
+        }
+        .content{
+            width: 100vw;
+            height: 150rem;
+            background-color: blue;
+        }
+        .right{
+            width: 100vw;
+            height: 15rem;
+            background-color:#ea3efe;
+                
+        }
+        /* --------------------------------
+                for tablet devices 
+        ----------------------------------*/
+        @media screen and (min-width: 768px ) {
+
+         
+            body{
+                display: grid;
+                grid-auto-columns: 100%;
+                grid-template-rows: 12% auto;
+                gap: 1em;
+                margin: 1em 2.5vw;
+            }
+
+            header{
+                height: 15rem;
+                background-color: red;
+            }
+            main{
+                display: grid;
+                grid-template-columns: 33% 59%;
+                grid-template-rows: 87% 18%;
+                gap: 1em;
+                
+            }
+            .left{
+                width: 30vw;
+                height: 100rem;
+                background-color: #2ced27;
+            }
+            .content{
+                width: 62vw;
+                height: 100rem;
+                background-color: blue;
+            }
+            .right{
+                width: 95vw;
+                height: 15rem;
+                background-color:#ea3efe;
+               
+            }
+    
+        }
+        /* Large devices (laptops/desktops, 992px and up) */
+        /* --------------------------------
+                for desktops devices 
+        ----------------------------------*/
+        @media screen and (min-width:992px) {
+            
+            body{
+                display: grid;
+                grid-auto-columns: 100%;
+                grid-template-rows: 35% auto;
+                gap: 1em;
+                margin: 1em 2.5vw;
+                            
+            }
+            header{
+                width: 95vw;
+                height: 100%;
+                background-color: red;
+            }
+            main{
+                display: grid;
+                grid-template-columns: 22% 55% 22%;
+                gap: 1em;
+                
+            }
+            .left{
+                width: 20vw;
+                height: 65vh;
+                background-color: #2ced27;
+            }
+            .content{
+                width: 51vw;
+                height: 65vh;
+                background-color: blue;
+            }
+            .right{
+                width: 20vw;
+                height: 65vh;
+                background-color:#ea3efe;
+            }
+                
+        }
+    
+    </style>
+</head>
+<body>
+    <header class="navbar">
+    </header>
+    <main>
+        <aside class="left"></aside>
+        <article class="content"></article>
+        <aside class="right"></aside>
+    </main>
+</body>
+</html>

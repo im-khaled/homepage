@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            
+            background-color: #c2eef9;
+        }
+        header{
+            width: 100%;
+            height: 80px;
+            background-color: #00a6d0;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:30px 80px 0 80px;
+        }
+        h1{
+            color: #5d5e5e;
+        }
+        nav li{
+            padding-top: 4px ;
+            padding-bottom: 4px ;
+            display:inline-block;
+            margin-right:15px ;
+            font-size: large;
+            font-weight: 500;
+            color: white;
+            cursor: pointer;
+        }
+        
+        nav li:hover{
+            padding-right:10px;
+            padding-left:10px;
+            background-color: aliceblue;
+            color: rgb(63, 61, 61);
+            border-radius: 15px;
+        }
+        .active{
+            padding-right:10px;
+            padding-left:10px;
+            background-color: aliceblue;
+            color: rgb(63, 61, 61);
+            border-radius: 15px;
+        }
+        main{
+            min-height: 70vh;
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 80px;
+            margin-bottom: 200px;
+            background-color: #f3f7f8;
+        }
+        aside{
+            width: 150px;
+            height: auto;
+            background-color: rgb(244, 242, 242);
+            
+        }
+        aside ul{
+            margin: 20px auto;
+            padding: 10px 20px;
+            text-align: left;
+        }
+        aside li{
+            list-style: none;
+            font-family: 500;
+            font-size: larger;
+            margin: 5px 0;
+            padding: 10px 10px;
+            
+        }
+        aside li:hover{
+            padding-right:10px;
+            padding-left:10px;
+            background-color: rgb(231, 230, 230);
+            color: rgb(63, 61, 61);
+            border-radius: 15px;
+        }
+        aside .active{
+            padding-right:10px;
+            padding-left:10px;
+            background-color: rgb(231, 230, 230);
+            color: rgb(63, 61, 61);
+            border-radius: 15px;
+        }
+        label{
+            cursor: pointer;
+        }
+
+        aside input[type="radio"] {
+            display: none;
+        }
+        aside input[type="radio"]:not(:checked) ~ ul {
+            display: none;
+        }
+        
+
+        /* losung-section */
+
+        article{
+            width: 85%;
+            /* border: 2px solid gray; */
+        }
+        section{
+            color: rgb(96, 95, 95);
+        }
+        article .lösung {
+            display: inline-block;
+            background: white none repeat scroll 0 0;
+            font-weight: bold;
+            font-size: 24px;
+            margin-left: 40px;
+            color: gray;
+            margin-top: -0.8em;
+            padding: 0 5px;
+        }
+        article .meine-loesung{
+            padding-top: 8px;
+            margin: 20px 40px;
+        }
+        article h4 , p{
+            margin: 1em 0;
+        }
+        article input[type="radio"] {
+            display: none;
+        }
+        article input[type="radio"]:not(:checked) ~ div {
+            display: none;
+        }
+        
+        .html-luekentext{
+            margin-top: 10px;
+        }
+        footer{
+            text-align: center;
+            width: 100%;
+            height: 80px;
+            background-color: #00a6d0;
+            margin-top: 80px;
+        }
+        footer p{
+            color: white;
+            padding-top: 30px;
+        }
+        .footer-correction{
+            margin-bottom: 500px;
+        }
+        iframe{
+            width: 95%;
+            height: 700px;
+            margin: 0 20px;
+            overflow: visible;
+            border: none;
+        }
+        /* --------------------------------
+                for tablet devices 
+        ----------------------------------*/
+        @media screen and (min-width: 768px ) and (max-width:991px){
+            main{
+                display: block;
+                margin: 40px 80px;
+               
+            }
+            aside{
+                width: 100%;
+                margin-bottom: 2rem;
+                
+            }
+            aside li{
+                display: inline-block;
+                padding: 5px 10px;
+            
+            }
+            article{
+                width: 100%;
+            }
+            
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        /* -------------------------------
+                for mobile devices
+        ---------------------------------*/
+        @media screen and (max-width: 768px ){
+
+            nav{
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem;
+            }
+            h1{
+                padding-bottom: 8px;
+            } 
+            header{
+                height: 90px;
+            }
+            main{
+                display: block;
+                margin: 40px 40px;
+               
+            }
+            aside{
+                width: 100%;
+                margin-bottom: 2rem;
+                
+            }
+            aside ul {
+                text-align: start;
+                margin-left: 1rem;
+            }
+            aside li{
+                display: inline-block;
+                padding: 5px 10px;
+            
+            }
+            article{
+                width: 100%;
+            }
+            .meine-loesung{
+                overflow: scroll;
+            }
+            iframe{
+                margin: 0 0;
+                overflow-x: scroll;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="navLabel active" id="sHTML"><label  for="HTML">HTML</label></li>
+                <li class="navLabel" id="sCSS"><label  for="CSS">CSS</label></li>
+                <li class="navLabel" id="sJS"><label  for="JS">JAVASCRIPT</label></li> 
+            </ul>
+        </nav> 
+    </header>
+    <main>
+        <aside>
+            <section class="HTML">
+                <input type="radio" onclick={addActiveClass()} name="ul" class="navButton" id="HTML" checked>
+                <ul>
+                    <li class=" asideButton active" id="sHTML-1"><label for="HTML-1">Headings</label></li>
+                    <li class="asideButton" id="sHTML-2"><label for="HTML-2">Paragraph</label></li>
+                    
+                </ul>
+            </section>
+            <section class="CSS">
+                <input type="radio" onclick={addActiveClass()} class="navButton"  name="ul" id="CSS">
+                <ul>
+                    <li class="asideButton" id="sCSS-1"><label for="CSS-1">Colors</label></li>
+                    <li class="asideButton" id="sCSS-2"><label for="CSS-2">Selectors</label></li>
+                    
+                </ul>
+            </section>
+            <section class="CSS">
+                <input type="radio" onclick={addActiveClass()} class="navButton"  name="ul" id="JS">
+                <ul>
+                    <li class="asideButton" id="sJS-1"><label for="JS-1">Fetch</label></li>
+                    <li class="asideButton" id="sJS-2"><label for="JS-2">Promise</label></li>
+                    <li class="asideButton" id="sJS-3"><label for="JS-3">Async</label></li> 
+                </ul>
+            </section>
+        </aside>
+        <article>
+            <section class="HTMLText" > 
+                <input type="radio" onclick={addData()} name="div" class="content" id="HTML-1" checked>
+                
+                <div class="meine-loesung"  id="HTMLHeading">
+                    <p>
+                        Die Überschrift-Elemente bestehen aus sechs verschiedenen Levels. Das 'h1'-Element ist die Überschrift mit der höchsten Gewichtung und das 'h6'-Element mit der kleinsten. Ein Überschriften-Element beschreibt das Thema des Bereiches, welcher der Überschrift folgt. Überschriften können auch verwendet werden, um ein Inhaltsverzeichnis für ein Dokument automatisch zu erstellen.
+                    </p>
+                    <a href="https://developer.mozilla.org/de/docs/Web/HTML/Element/h1-h6">https://developer.mozilla.org/de/docs/Web/HTML/Element/h1-h6</a>
+                    <!--Dynamic Content-->
+                    
+                </div>
+                
+            </section>
+            <section class="HTMLText" > 
+                <input type="radio" onclick={addData()} name="div" class="content" id="HTML-2">
+                <div class="meine-loesung" id="HTMLParagraph">
+                    <!--Dynamic Content-->
+
+                </div>
+            </section>
+            <section class="CSSText" > 
+                <input type="radio" onclick={addData()} name="div" class="content" id="CSS-1">
+                
+                <div class="meine-loesung " id="CSSColor">
+                    <!--Dynamic Content-->
+                 
+                </div>
+                
+            </section>
+            <section class="CSSText" > 
+                <input type="radio" onclick={addData()} name="div" class="content" id="CSS-2">
+                <div class="meine-loesung" id="CSSSelector">
+                    <!--Dynamic Content-->
+                    
+                </div>
+            </section>
+
+            <section class="CSSText" > 
+                <input type="radio" onclick={addData()} name="div" class="content" id="JS-1">
+                <div class="meine-loesung" id="JSFetch">
+                    <!--Dynamic Content-->
+                    
+                </div>
+            </section>
+            <section class="CSSText" > 
+                <input type="radio" onclick={addData()} name="div" class="content" id="JS-2">
+                <div class="meine-loesung" id="JSPromise">
+                    <!--Dynamic Content-->
+                    
+                </div>
+            </section>
+            <section class="CSSText" > 
+                <input type="radio" onclick={addData()} name="div" class="content" id="JS-3">
+                <div class="meine-loesung" id="JSAsync">
+                    <!--Dynamic Content-->
+                    
+                </div>
+            </section>
+            
+        </article>
+    </main>
+    <footer>
+        <p>Copyright © 2023 - All Right Reserved!</p>
+    </footer>
+    <script>
+        //Toggling active class in the button
+        const addActiveClass = () =>{
+            const HTMLButton = document.querySelectorAll('.navButton');
+            
+            HTMLButton.forEach(button =>{ 
+
+                if(button.checked){
+                    const addClass = document.querySelector(`nav #s${button.id}`)
+                    addClass.classList.add('active')
+                }
+                if(!button.checked){
+                    const addClass = document.querySelector(`nav #s${button.id}`)
+                    addClass.classList.remove('active')
+                }
+                
+            })     
+        }
+        //Toggling active class in the aside button
+        const addActiveClassAside = () =>{
+            const contentButton = document.querySelectorAll('.content');
+            
+            contentButton.forEach(button =>{ 
+
+                if(button.checked){
+                    const addClass = document.querySelector(`aside #s${button.id}`)
+                    addClass.classList.add('active')
+                }
+                if(!button.checked){
+                    const addClass = document.querySelector(`aside #s${button.id}`)
+                    addClass.classList.remove('active')
+                }
+                
+            })     
+        }
+        //fetching Data from localhost
+       const fetchData = async() =>{
+            try {
+                const response = await fetch('./data.json');
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                const savedData = data;
+
+                return savedData;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+// Call the async function
+const result = fetchData();
+
+
+        const HTMLHeading = document.querySelector('#HTMLHeading');
+        const HTMLParagraph = document.querySelector('#HTMLParagraph');
+        const CSSColor = document.querySelector('#CSSColor');
+        const CSSSelector = document.querySelector('#CSSSelector');
+        const JSFetch = document.querySelector('#JSFetch');
+        const JSPromise = document.querySelector('#JSPromise');
+        const JSAsync = document.querySelector('#JSAsync');
+        
+        
+        const addData = () =>{
+            addActiveClassAside();
+            result.then(data =>{
+                console.log(data);
+                
+                if(HTMLHeading.id === 'HTMLHeading' ){
+                    HTMLHeading.textContent='';
+                    const div = document.createElement('div');
+                    const p1 = document.createElement('p');
+                    const p2 = document.createElement('p');
+                    p1.textContent = data.html.headings.content;
+                    p2.innerHTML = `<a href=${data.html.headings.references[0]}> ${data.html.headings.references[0]}</a>`;
+                    div.appendChild(p1)
+                    div.appendChild(p2)
+                    HTMLHeading.appendChild(div);
+                }
+                if(HTMLParagraph.id === 'HTMLParagraph' ){
+                    HTMLParagraph.textContent='';
+                    const div = document.createElement('div');
+                    const p1 = document.createElement('p');
+                    const p2 = document.createElement('p');
+                    p1.textContent = data.html.paragraph.content;
+                    p2.innerHTML = `<a href=${data.html.paragraph.references[0]}> ${data.html.paragraph.references[0]}</a>`;
+                    div.appendChild(p1)
+                    div.appendChild(p2)
+                    HTMLParagraph.appendChild(div);
+                }
+                if(CSSColor.id === 'CSSColor' ){
+                    CSSColor.textContent='';
+                    const div = document.createElement('div');
+                    const p1 = document.createElement('p');
+                    const p2 = document.createElement('p');
+                    p1.textContent = data.css.colors.content;
+                    p2.innerHTML = `<a href=${data.css.colors.references[0]}> ${data.css.colors.references[0]}</a>`;
+                    div.appendChild(p1)
+                    div.appendChild(p2)
+                    CSSColor.appendChild(div);
+                }
+                if(CSSSelector.id === 'CSSSelector' ){
+                    CSSSelector.textContent='';
+                    const div = document.createElement('div');
+                    const p1 = document.createElement('p');
+                    const p2 = document.createElement('p');
+                    p1.textContent = data.css.selectors.content;
+                    p2.innerHTML = `<a href=${data.css.selectors.references[0]}> ${data.css.selectors.references[0]}</a>`;
+                    div.appendChild(p1)
+                    div.appendChild(p2)
+                    CSSSelector.appendChild(div);
+                }
+                if(JSFetch.id === 'JSFetch' ){
+                    JSFetch.textContent='';
+                    const div = document.createElement('div');
+                    const p1 = document.createElement('p');
+                    const p2 = document.createElement('p');
+                    p1.textContent = data.javascript.fetch.content;
+                    p2.innerHTML = `<a href=${data.javascript.fetch.references[0]}> ${data.javascript.fetch.references[0]}</a>`;
+                    div.appendChild(p1)
+                    div.appendChild(p2)
+                    JSFetch.appendChild(div);
+                }
+                if(JSPromise.id === 'JSPromise' ){
+                    JSPromise.textContent='';
+                    const div = document.createElement('div');
+                    const p1 = document.createElement('p');
+                    const p2 = document.createElement('p');
+                    p1.textContent = data.javascript.promise.content;
+                    p2.innerHTML = `<a href=${data.javascript.promise.references[0]}> ${data.javascript.promise.references[0]}</a>`;
+                    div.appendChild(p1)
+                    div.appendChild(p2)
+                    JSPromise.appendChild(div);
+                }
+                if(JSAsync.id === 'JSAsync' ){
+                    JSAsync.textContent='';
+                    const div = document.createElement('div');
+                    const p1 = document.createElement('p');
+                    const p2 = document.createElement('p');
+                    p1.textContent = data.javascript.async.content;
+                    p2.innerHTML = `<a href=${data.javascript.async.references[0]}> ${data.javascript.async.references[0]}</a>`;
+                    div.appendChild(p1)
+                    div.appendChild(p2)
+                    JSAsync.appendChild(div);
+                }
+                
+            })
+        }
+        
+    </script>
+</body>
+</html>
