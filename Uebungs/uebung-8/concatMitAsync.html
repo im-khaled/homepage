@@ -23,8 +23,14 @@
         // Mit Async Await 
         async function DisplayDateien() {
             try {
-                const dateiA = await fetchTextDateien('./A.text');
-                const dateiB = await fetchTextDateien('./B.text');
+                const dateiAPromise = await fetchTextDateien('./A.text');
+                const dateiBPromise = await fetchTextDateien('./B.text');
+
+                // const allData = await Promise.all([dateiAPromise, dateiBPromise]);
+                // console.log(allData);
+                // const [dateiA, dateiB] = allData;
+                
+              const [dateiA, dateiB] = await Promise.all([dateiAPromise, dateiBPromise]);
 
                     const concatenatedDateien = concatenateTextDateien(dateiA, dateiB);
                     const lines = concatenatedDateien.split('\n');
