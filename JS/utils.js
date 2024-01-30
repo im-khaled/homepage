@@ -1,9 +1,9 @@
-export const getCode = () =>{
-    const url = '/Uebungs/uebung -11/server.js';
+export const getCode = (id, ubungNummer, fileName) =>{
+    const url = `/Uebungs/uebung-${ubungNummer}/${fileName}.js`;
     fetch(url)
     .then(data => data.text())
     .then(code => {
-        document.getElementById('11').innerText = code;
+        document.getElementById(id).innerText = code;
     })
     .catch(e => console.error(e))
 }

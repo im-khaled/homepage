@@ -69,6 +69,7 @@
                     <li class=" asideButton " id="sJS-aufgabe-2"><label for="JS-aufgabe-2">Objekte</label></li>
                     <li class=" asideButton " id="sJS-aufgabe-3"><label for="JS-aufgabe-3">Fibonacci</label></li> 
                     <li class=" asideButton " id="sJS-aufgabe-4"><label for="JS-aufgabe-4">TopSort</label></li> 
+                    <li class=" asideButton " id="sJS-aufgabe-5"><label for="JS-aufgabe-5">Spread-Operator</label></li> 
                 </ul>
             </section>
             <section class="Dom">
@@ -335,7 +336,7 @@
             <section class="loesung-7" > 
                 <input type="radio" name="div" id="HTML-aufgabe-7" onclick={addActiveClassAside()} class="loesung" checked> 
                 <div class="meine-loesung" id="HTML-aufgabe-7">
-                    <iframe src="/Uebungs/uebung-1/index.html" title="HTML Wireframe" ></iframe>
+                    <iframe src="/Uebungs/uebung-1/html-wireframe.html" title="HTML Wireframe" ></iframe>
                 </div>
                 
             </section>
@@ -370,7 +371,7 @@
                 <div class="meine-loesung" id="CSS-aufgabe-3">
                     <h3><u>CSS-Positionierung</u></h3>
                     <h4>Lösung zum 2. Video:</h4>
-                    <iframe src="/Uebungs/uebung-2/Hide and Show/index.html" frameborder="0" scrolling="no" ></iframe>
+                    <iframe src="/Uebungs/uebung-2/Hide and Show/image-hide-show.html" frameborder="0" scrolling="no" ></iframe>
                 </div>
             </section>
             <section class="Uebung2-loesung-4">
@@ -378,7 +379,7 @@
                 <div class="meine-loesung" id="CSS-aufgabe-4">
                     <h3><u>Wireframe mit HTML und CSS</u></h3>
                     <h4>HTML-Wireframe:</h4>
-                    <iframe src="/Uebungs/uebung-2/wirefram-css/index.html" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="/Uebungs/uebung-2/wirefram-css/css-wireframe.html" frameborder="0" scrolling="no"></iframe>
                 </div>
             </section>
              <!--lösung von Übung-2 beended-->
@@ -388,7 +389,7 @@
                 <div class="meine-loesung" id="RWD-aufgabe-1">
                     <h3><u>Responsiv mit Flexbox und Desktop-First</u></h3>
                     <h4>Desktop-First-Strategie:</h4>
-                    <iframe src="/Uebungs/uebungs-3/Deskktop-first.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-3/Deskktop-first.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="Uebung3-loesung-2">
@@ -397,7 +398,7 @@
                 <div class="meine-loesung" id="RWD-aufgabe-2">
                     <h3><u>Responsiv mit Grid und Mobile-First</u></h3>
                     <h4>Mobile-First:</h4>
-                    <iframe src="/Uebungs/uebungs-3/Mobile-first.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-3/Mobile-first.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="Uebung3-loesung-3">
@@ -405,7 +406,7 @@
                 <div class="meine-loesung" id="RWD-aufgabe-3">
                     <h3><u>Wireframe responsive mit Grid</u></h3>
                     <h4>Landing-Page responsiv mit Grid:</h4>
-                    <iframe src="/Uebungs/uebungs-3/grid.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-3/grid-wireframe.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
              <!--lösung von Übung-3 beended-->
@@ -414,56 +415,8 @@
                 <input type="radio" name="div" id="JS-aufgabe-1" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="JS-aufgabe-1">
                     <h3><u>Funktionen</u></h3>
-                    <pre><code class="javascript">
-    //Aufgabe 1
-    function identity(a) {
-        return a;
-    }
-
-    //Aufgabe 2
-    function identity_function(a) {
-        return function() {
-        return a;
-        };
-    }
-    
-    // Aufgabe 3
-    function add(x, y) {
-        return x + y;
-    }
-    
-    function mul(x, y) {
-        return x * y;
-    }
-    
-    //Aufgabe 4
-    function addf(x) {
-        return function(y) {
-        return x + y;
-        };
-    }
-    
-    // Example usage:
-    const result = addf(3)(4); 
-    console.log("Result:", result);
-    
-    //aufgabe 5
-    function applyf(binaryFunc) {
-        return function(x) {
-        return function(y) {
-            return binaryFunc(x, y);
-        };
-        };
-    }
-    const addff = applyf(add);
-    const mulf = applyf(mul);
-    
-    const resultAdd = addff(3)(4); // Result: 7
-    const resultMul = mulf(5)(6); // Result: 30
-    
-    console.log("Result (addf):", resultAdd);
-    console.log("Result (mulf):", resultMul);
-
+                    <pre><code id="JS41" class="javascript">
+                        <!--dynamic content-->
                     </code></pre>
                 </div>
             </section>
@@ -471,63 +424,8 @@
                 <input type="radio" name="div" id="JS-aufgabe-2" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="JS-aufgabe-2">
                     <h3><u>Objekte</u></h3>
-                    <pre><code class="javascript">
-    // Person-Prototyp
-    function Person(name) {
-        this.name = name;
-        this.autos = [];
-    }
-    
-    // Auto-Prototyp
-    function Auto(model) {
-        this.model = model;
-        this.owner = [];
-    }
-    
-    // Funktion zum Überprüfen von Konflikten
-    function conflict(auto) {
-        
-        if(auto.owner.length > 1){
-            console.log('\nKonflikt gefunden');
-            for(var x of auto.owner ){
-                console.log(auto.model, 'wird von', x, 'besessen');
-            }
-            
-        return true;   
-        }
-        else{
-        console.log('\nFür',auto.model,'Kein Konflikt gefunden'); 
-        }
-        return false;
-    }
-    
-    // Beispiel
-    const person1 = new Person("Paul");
-    const person2 = new Person("Linda");
-    const person3 = new Person("Tim");
-    
-    const auto1 = new Auto("BMW");
-    const auto2 = new Auto("Audi");
-    const auto3 = new Auto("Volkswagen");
-    
-    
-    person1.autos.push(auto1);
-    person2.autos.push(auto2);
-    person3.autos.push(auto3);
-    
-    
-
-    auto1.owner.push (person1.name);
-    auto2.owner.push (person2.name);
-    auto3.owner.push (person1.name);
-    auto3.owner.push (person3.name);
-
-
-        // false, kein Konflikt
-        conflict(auto1); 
-
-        // true, Konflikt gefunden
-        conflict(auto3); 
+                    <pre><code id="JS42" class="javascript">
+                        <!--dynamic content-->
                     </code></pre>
                 </div>
             </section>
@@ -535,60 +433,8 @@
                 <input type="radio" name="div" id="JS-aufgabe-3" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="JS-aufgabe-3">
                     <h3><u>Fibonacci</u></h3>
-                    <pre><code class="javascript">
-                       
-    const fibTable = new Map();
-    const GrosteInt = new Array();
-    const intZahl = new Array();
-    const numZahl = new Array();
-    
-    function fib(n) {
-        // Initialisiere die ersten beiden Fibonacci-Zahlen.
-        let prevPrev = 0;
-        let prev = 1;
-        if(n === 0){
-            return 0;
-        }
-        if(n === 1) {
-            return 1;
-        }
-        // Berechne die Fibonacci-Zahlen von 2 bis n.
-        for (let i = 2; i <= n; i++) {
-        const current = prevPrev + prev;
-        prevPrev = prev;
-        prev = current;
-        }
-    
-        // Rückgabe der n-ten Fibonacci-Zahl.
-        return prev;
-    }
-    for (let i = 0; i <= 2000; i++) {
-        let result = fib(i);
-        
-        if(result > Number.MAX_SAFE_INTEGER && result < Number.MAX_VALUE){
-
-            intZahl.push(i-1);
-            const newResult = fib(i-1);
-            GrosteInt.push(newResult);
-            result = BigInt(result);
-            numZahl.push(result);
-            
-        }
-        fibTable.set(i, result);
-        console.log(fibTable); 
-        
-    }
-    //größte Fibonacci-Zahl, die sich noch als Integer sicher speichern lässt
-    console.log('Größte Fibonacci-Zahl(Integer)', GrosteInt[0])
-
-    //Die Zahl, die in der Fibonacci-Folge(Integer)
-    console.log('Die anzahl, die in der Fibonacci-Folge(Integer):', intZahl[0]);
-
-    //die größte Fibonacci-Zahl, die sich noch als Number speichern lässt 
-    console.log('Größte Fibonacci-Zahl(Number)', numZahl[numZahl.length-1])
-
-    //Die Zahl, die in der Fibonacci-Folge(Number)
-    console.log('Die anzahl, die in der Fibonacci-Folge(Number):', intZahl.length);
+                    <pre><code id="JS43" class="javascript">
+                        <!--dynamic content-->
                     </code></pre>
                 </div>
             </section>
@@ -596,59 +442,43 @@
                 <input type="radio" name="div" id="JS-aufgabe-4" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="JS-aufgabe-4">
                     <h3><u>TopSort</u></h3>
+                    <pre><code id="JS44" class="javascript">
+                        <!--dynamic content-->
+                    </code></pre>
+                </div>
+            </section>
+            <section class="Uebung4-loesung-5">
+                <input type="radio" name="div" id="JS-aufgabe-5" onclick={addActiveClassAside()} class="loesung" >
+                <div class="meine-loesung" id="JS-aufgabe-5">
+                    <h3><u>Spread-Operator</u></h3>
                     <pre><code class="javascript">
-function topsort(abhaengigkeiten) {
-    const graph = new Map();
-    const sortedGraph = new Map();
-    const ergebnis = [];
-    
-    // Erstelle den Graphen und berechne die sortedGraph
-    for (const [von, nach] of abhaengigkeiten) {
-        if (!graph.has(von)) {
-        graph.set(von, []);
-        }
-        graph.get(von).push(nach);
-    
-        sortedGraph.set(nach, (sortedGraph.get(nach) || 0) + 1);
-    }
-    
-    // Initialisiere eine queue mit Knoten
-    const queue = [];
-    for (const knoten of graph.keys()) {
-        if (!sortedGraph.has(knoten)) {
-        queue.push(knoten);
-        }
-    }
-    
-    // Führe die topologische Sortierung
-    while (queue.length > 0) {
-        const knoten = queue.shift();
-        ergebnis.push(knoten);
-    
-        if (graph.has(knoten)) {
-        for (const nachbar of graph.get(knoten)) {
-            sortedGraph.set(nachbar, sortedGraph.get(nachbar) - 1);
-    
-            if (sortedGraph.get(nachbar) === 0) {
-            queue.push(nachbar);
-            }
-        }
-        }
-    }
-    
-    return ergebnis;
-    }
-    
-    // Test
-    const abhaengigkeiten = [["schlafen", "studieren"], ["essen", "studieren"], ["studieren", "pruefen"],["vorbereiten", "pruefen"]];
-    const ergebnis = topsort(abhaengigkeiten);
+        /**
+            Mit dem Spread-Operator können wir die Elemente eines Arrays in ein anderes Array einfügen oder sie als Argumente für eine Funktion übergeben.
+        */
 
-    console.assert(ergebnis.indexOf("essen") < ergebnis.indexOf("studieren"), "Test failed: 'essen' sollte vor 'studieren' liegen");
-    console.assert(ergebnis.indexOf("schlafen") < ergebnis.indexOf("studieren"), "Test failed: 'schlafen' sollte vor 'studieren' liegen");
-    console.assert(ergebnis.indexOf("studieren") < ergebnis.indexOf("pruefen"), "Test failed: 'studieren' sollte vor 'pruefen' liegen");
-    console.assert(ergebnis.indexOf("vorbereiten") < ergebnis.indexOf("pruefen"), "Test failed: 'studieren' sollte vor 'pruefen' liegen");
+        //Zusammenfügen von Arrays
+        const array1 = [1, 2, 3];
+        const array2 = [4, 5, 6];
+        const mergedArray = [...array1, ...array2];
 
-    console.log("Topologische Sortierung:", ergebnis);  
+        console.log(mergedArray); // Ausgabe: [1, 2, 3, 4, 5, 6]
+
+        // Verwendung in einer Funktion
+        const numbers = [10, 20, 30];
+        const sum = (a, b, c) => a + b + c;
+
+        console.log(sum(...numbers)); // Ausgabe: 60
+
+        /*
+            Der Spread-Operator kann auch verwendet werden, um Eigenschaften von einem Objekt in ein anderes zu kopieren.   
+        */
+
+        //Kopieren von Objekteigenschaften
+        const person = { name: 'John', age: 25 };
+        const details = { email: 'john@beispiel.com', ...person };
+
+        console.log(details);
+        // Ausgabe: { address: '123 Main St', name: 'John', age: 25 }
                     </code></pre>
                 </div>
             </section>
@@ -659,7 +489,7 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="Dom-aufgabe-1">
                     <h3><u>Dom Operation</u></h3>
                     <h4>Performanz-Messungen</h4>
-                    <iframe src="/Uebungs/uebung-5/DomPerfoemence/index.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-5/DomPerfoemence/dom-operations.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="Dom-loesung-2">
@@ -667,7 +497,7 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="Dom-aufgabe-2">
                     <h3><u>Rednerliste</u></h3>
                     <h4>Rednerliste mit Zeitmessung</h4>
-                    <iframe src="/Uebungs/uebung-5/RednerListe/index.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-5/RednerListe/redner.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="Dom-loesung-3">
@@ -675,7 +505,7 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="Dom-aufgabe-3">
                     <h3><u>TopSort</u></h3>
                     <h4>TopSort als Web-App</h4>
-                    <iframe src="/Uebungs/uebung-5/topShort/index.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-5/topShort/top-short.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <!--lösung von Dom beended-->
@@ -685,7 +515,7 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="ES6-aufgabe-1">
                     <h3><u>Klammerpaare</u></h3>
                     <h4> Überprüfen Klammerpaare</h4>
-                    <iframe src="/Uebungs/uebung-6/Klamarpaare/index.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-6/Klamarpaare/klamarpaare.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="ES6-loesung-2">
@@ -693,7 +523,7 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="ES6-aufgabe-2">
                     <h3><u>Topologische Iterierbarkeit</u></h3>
                     <h4> Topologische Iterierbarkeit Mit ES6 Klasse</h4>
-                    <iframe src="/Uebungs/uebung-6/TopologischeSort/index.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-6/TopologischeSort/top-short.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="ES6-loesung-3">
@@ -701,74 +531,8 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="ES6-aufgabe-3">
                     <h3><u>Topologische Iterierbarkeit</u></h3>
                     <h4> Topologische Iterierbarkeit mittels Generator</h4>
-                    <pre><code class="javascript">
-    class Vorrang {
-
-        constructor(relations) {
-            this.graph = new Map();
-            this.inDegree = new Map();
-            this.sortedOrder = [];
-            
-            // Erstelle den Graphen und berechne die inDegreeGraph
-            relations.forEach(([node1, node2]) => {
-            if (!this.graph.has(node1)) {
-                this.graph.set(node1, new Set());
-                this.inDegree.set(node1, 0);
-            }
-            if (!this.graph.has(node2)) {
-                this.graph.set(node2, new Set());
-                this.inDegree.set(node2, 0);
-            }
-        
-            this.graph.get(node1).add(node2);
-            this.inDegree.set(node2, this.inDegree.get(node2) + 1);
-            });  
-        }
-        
-        // generator function
-        *generator() {
-                
-            while (this.sortedOrder.length < this.graph.size) {
-            const candidates = Array.from(this.inDegree.entries())
-                .filter(([node, inDegree]) => inDegree === 0 && !this.sortedOrder.includes(node))
-                .map(([node]) => node);
-        
-            const node = candidates[0];
-            this.sortedOrder.push(node);
-        
-            if (this.graph.has(node)) {
-                this.graph.get(node).forEach(neighbor => {
-                this.inDegree.set(neighbor, this.inDegree.get(neighbor) - 1);
-                });
-            }
-            
-            yield node;
-            
-            }
-            
-        }
-            
-        }
-        
-        // Test Data
-        const studentenLeben = new Vorrang([
-        ["schlafen", "studieren"],
-        ["essen", "studieren"],
-        ["studieren", "prüfen"],
-        ["vorbereiten", "prüfen"]
-        
-        ]);
-        
-        const gen = studentenLeben.generator();
-        
-        //Tests
-        console.assert(gen.next().value === "schlafen", "Test 1 nicht bestanden!");
-        console.assert(gen.next().value === "essen", "Test 2 nicht bestanden!");
-        console.assert(gen.next().value === "studieren", "Test 3 nicht bestanden!");
-        console.assert(gen.next().value === "vorbereiten", "Test 4 nicht bestanden!");
-        console.assert(gen.next().value === "prüfen", "Test 5 nicht bestanden!");
-                          
-                          
+                    <pre><code id="ES63" class="javascript">
+                        <!--dynamic content-->
                     </code></pre>
                 </div>
             </section>
@@ -776,92 +540,8 @@ function topsort(abhaengigkeiten) {
                 <input type="radio" name="div" id="ES6-aufgabe-4" onclick={addActiveClassAside()} class="loesung" >
                 <div class="meine-loesung" id="ES6-aufgabe-4">
                     <h3><u>Proxy</u></h3>
-                    <pre><code class="javascript">
-    class Vorrang {
-
-        constructor(relations) {
-            this.graph = new Map();
-            this.inDegree = new Map();
-            this.sortedOrder = [];
-            
-            // Erstelle den Graphen und berechne die inDegreeGraph
-            relations.forEach(([node1, node2]) => {
-            if (!this.graph.has(node1)) {
-                this.graph.set(node1, new Set());
-                this.inDegree.set(node1, 0);
-            }
-            if (!this.graph.has(node2)) {
-                this.graph.set(node2, new Set());
-                this.inDegree.set(node2, 0);
-            }
-        
-            this.graph.get(node1).add(node2);
-            this.inDegree.set(node2, this.inDegree.get(node2) + 1);
-            });
-    
-            // Proxy handler
-            this.handler = {
-                get: function (target, prop, receiver) {
-                    if (prop === 'generator') {
-                    
-                    return function () {   
-                        const result = target[prop].apply(target, arguments);
-                        
-                        return result;
-                    };
-                    }
-                    return target[prop];
-                },
-                
-            }
-    
-            // Proxy for Logging
-            this.proxy = new Proxy(this,this.handler);
-        }
-    
-        // generator function
-        *generator() {
-                
-            while (this.sortedOrder.length < this.graph.size) {
-            const candidates = Array.from(this.inDegree.entries())
-                .filter(([node, inDegree]) => inDegree === 0 && !this.sortedOrder.includes(node))
-                .map(([node]) => node);
-        
-            const node = candidates[0];
-            this.sortedOrder.push(node);
-        
-            if (this.graph.has(node)) {
-                this.graph.get(node).forEach(neighbor => {
-                this.inDegree.set(neighbor, this.inDegree.get(neighbor) - 1);
-                });
-            }
-            this.remainingRelations = this.graph.size - this.sortedOrder.length;
-            console.log(`Remaining relations: ${this.remainingRelations}`);
-            yield node;
-            
-            }
-            
-        }
-            
-        }
-        
-        // Test Data
-        const studentenLeben = new Vorrang([
-        ["schlafen", "studieren"],
-        ["essen", "studieren"],
-        ["studieren", "prüfen"],
-        ["vorbereiten", "prüfen"]
-    
-        ]);
-        
-        const gen = studentenLeben.proxy.generator();
-    
-        //Tests
-        console.assert(gen.next().value === "schlafen", "Test 1 nicht bestanden!");
-        console.assert(gen.next().value === "essen", "Test 2 nicht bestanden!");
-        console.assert(gen.next().value === "studieren", "Test 3 nicht bestanden!");
-        console.assert(gen.next().value === "vorbereiten", "Test 4 nicht bestanden!");
-        console.assert(gen.next().value === "prüfen", "Test 5 nicht bestanden!");  
+                    <pre><code id="ES64" class="javascript">
+                        <!--dynamic content-->
                     </code></pre>
                 </div>
             </section>
@@ -899,7 +579,7 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="ASJS-aufgabe-3">
                     <h3><u>WWW-Navigator</u></h3>
                     <h4>Responsiv WWW-Navigator mit HTML, CSS, and JS</h4>
-                    <iframe src="/Uebungs/uebung-8/WWW-Navigator/index.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-8/WWW-Navigator/navigator.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <!--lösung von ASJS beended-->
@@ -909,7 +589,7 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="SVG-aufgabe-2">
                     <h3><u>Balkendiagramm</u></h3>
                     <h4>Balkendiagramm mit HTML, Inline SVG, CSS</h4>
-                    <iframe src="/Uebungs/uebung-9/Barchart/index.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-9/Barchart/bar-chart.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="SVG-loesung-3">
@@ -917,7 +597,7 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="SVG-aufgabe-3">
                     <h3><u>Interaktive SVG Grafik</u></h3>
                     <h4>Tic-Tac-Toe Spiel</h4>
-                    <iframe src="/Uebungs/uebung-9/Tic-Tac/index.html" frameborder="0" scrolling="yes"></iframe>
+                    <iframe src="/Uebungs/uebung-9/Tic-Tac/tic-tac-toe.html" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </section>
             <section class="SVG-loesung-4">
@@ -950,23 +630,23 @@ function topsort(abhaengigkeiten) {
                     <h3><u>Static</u></h3>
                     <h4>Static classes in TypeScript</h4>
                     <pre><code class="TypeScript">
-    // In TypeScript gibt es kein direktes Äquivalent zu statischen Klassen, da TypeScript in erster Linie den ECMAScript-Standards folgt und JavaScript selbst kein Konzept für statische Klassen hat.
+        // In TypeScript gibt es kein direktes Äquivalent zu statischen Klassen, da TypeScript in erster Linie den ECMAScript-Standards folgt und JavaScript selbst kein Konzept für statische Klassen hat.
 
-    // Mit TypeScript können Sie jedoch mithilfe statischer Eigenschaften und Methoden innerhalb einer Klasse eine ähnliche Funktionalität erreichen.
+        // Mit TypeScript können Sie jedoch mithilfe statischer Eigenschaften und Methoden innerhalb einer Klasse eine ähnliche Funktionalität erreichen.
 
-    // Hier ist ein Beispiel für die Erstellung einer TypeScript-Klasse mit statischen Mitgliedern:
-                
-    class StaticExample {
-        static staticProperty: number = 42;
+        // Hier ist ein Beispiel für die Erstellung einer TypeScript-Klasse mit statischen Mitgliedern:
                     
-            static staticMethod(): void {
-                console.log("Static method called");
-            }
-    }
-                    
-        // Auf statische Mitglieder zugreifen:
-    console.log(StaticExample.staticProperty);
-    StaticExample.staticMethod();</code></pre>
+        class StaticExample {
+            static staticProperty: number = 42;
+                        
+                static staticMethod(): void {
+                    console.log("Static method called");
+                }
+        }
+                        
+            // Auf statische Mitglieder zugreifen:
+        console.log(StaticExample.staticProperty);
+        StaticExample.staticMethod();</code></pre>
                 </div>
             </section>
             <section class="TS-loesung-2">
@@ -975,18 +655,18 @@ function topsort(abhaengigkeiten) {
                     <h3><u>Fehler</u></h3>
                     <h4>Fehler finden mit TypeScript</h4>
                     <pre><code class="TypeScript">
-    const add = (x: number, y: number): number => x + y;
-    const equals = (x: any, y: any): boolean => x === y;
-    
-    console.log(add(1, 2));
-    console.log(add(true, true)); // Dadurch wird ein TypeScript-Fehler generiert
-    console.log(add(true, false)); // Dadurch wird ein TypeScript-Fehler generiert
-    const x: number = 1;
-    const y: number = 1;
-    console.log(add(equals(x, y), equals(y, x))); 
+        const add = (x: number, y: number): number => x + y;
+        const equals = (x: any, y: any): boolean => x === y;
+        
+        console.log(add(1, 2));
+        console.log(add(true, true)); // Dadurch wird ein TypeScript-Fehler generiert
+        console.log(add(true, false)); // Dadurch wird ein TypeScript-Fehler generiert
+        const x: number = 1;
+        const y: number = 1;
+        console.log(add(equals(x, y), equals(y, x))); 
 
-    // Fehler tritt auf, weil „add“ Zahlenparameter erwartet, „equals(x, y)“ und „equals(y, x)“ jedoch einen booleschen Wert zurückgeben.
-                    </code></pre>
+        // Fehler tritt auf, weil „add“ Zahlenparameter erwartet, „equals(x, y)“ und „equals(y, x)“ jedoch einen booleschen Wert zurückgeben.
+                        </code></pre>
                 </div>
             </section>
             <!--lösung von TypeScript beended-->
@@ -996,7 +676,7 @@ function topsort(abhaengigkeiten) {
                 <div class="meine-loesung" id="Node-aufgabe-1">
                     <h3><u>Webserver</u></h3>
                     <h4>Lokaler Webserver mit NodeJS</h4>
-                    <pre><code id="11" class="javascript">
+                    <pre><code id="NODE111" class="javascript">
                         <!--dynamic Code-->
                         </code>
                     </pre>
@@ -1016,7 +696,7 @@ function topsort(abhaengigkeiten) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
     <script>hljs.highlightAll();</script>
     <script type="module" src="/JS/main.js"></script>
-    <script src="/JS/homePage.js"></script>
+    <script src="/JS/button.js"></script>
     
 </body>
 </html>
