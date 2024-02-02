@@ -60,7 +60,6 @@ aside ul{
 }
 aside li{
     list-style: none;
-    font-family: 500;
     font-size: larger;
     margin: 5px 0;
     padding: 10px 10px;
@@ -75,7 +74,7 @@ aside li:hover{
     border-radius: 18px;
 }
 aside .active{
-    padding-right: 5px 5px;
+    padding-right: 5px;
     background-color: #00a6d0;
     color: white;
     border-radius: 18px;

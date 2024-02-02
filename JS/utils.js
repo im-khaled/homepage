@@ -1,5 +1,5 @@
 export const getCode = (id, ubungNummer, fileName) =>{
-    const url = `/Uebungs/uebung-${ubungNummer}/${fileName}.js`;
+    const url = `./src/uebungen/uebung-${ubungNummer}/${fileName}.js`;
     fetch(url)
     .then(data => data.text())
     .then(code => {
