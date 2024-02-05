@@ -9,7 +9,7 @@ const textAnalysis = (inputText) => {
     
     // Filter Stoppwort und empty String
     const filteredWords = words.filter((word) => !stopWords.includes(word) && (word !== ''));
-    console.log(filteredWords);
+    // console.log(filteredWords);
 
     const wordCountMap = filteredWords.reduce((acc, word) => {
       acc.set(word, (acc.get(word) || 0) + 1);

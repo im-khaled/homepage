@@ -144,7 +144,8 @@ iframe{
     margin: 0 20px;
     overflow: visible;
     border: none;
-}
+}       
+        /* Medium devices (landscape tablets, 768px and up to 991px) */
         /* --------------------------------
                 for tablet devices 
         ----------------------------------*/
@@ -173,7 +174,7 @@ iframe{
             
         }
 
-        /* Medium devices (landscape tablets, 768px and up) */
+        
         /* -------------------------------
                 for mobile devices
         ---------------------------------*/

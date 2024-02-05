@@ -379,7 +379,7 @@
                 <div class="meine-loesung">
                     <h3><u>Wireframe mit HTML und CSS</u></h3>
                     <h4>HTML-Wireframe:</h4>
-                    <iframe src="./src/uebungen/uebung-2/wirefram-css/css-wireframe.html"  scrolling="no"></iframe>
+                    <iframe src="./src/uebungen/uebung-2/wirefram-css/css-wireframe.html"  scrolling="yes"></iframe>
                 </div>
             </section>
              <!--lösung von Übung-2 beended-->
@@ -475,10 +475,10 @@
 
         //Kopieren von Objekteigenschaften
         const person = { name: 'John', age: 25 };
-        const details = { email: 'john@beispiel.com', ...person };
+        const details = {...person, email: 'john@beispiel.com'};
 
         console.log(details);
-        // Ausgabe: { address: '123 Main St', name: 'John', age: 25 }
+        // Ausgabe: {name: 'John', age: 25, email: 'john@beispiel.com'}
                     </code></pre>
                 </div>
             </section>
@@ -695,6 +695,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
     <script>hljs.highlightAll();</script>
+    <!--JS file here-->
     <script type="module" src="/JS/main.js"></script>
     <script src="/JS/button.js"></script>
     

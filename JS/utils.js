@@ -1,11 +1,12 @@
-export const getCode = (id, ubungNummer, fileName) =>{
+export const getCode = async (id, ubungNummer, fileName) =>{
     const url = `./src/uebungen/uebung-${ubungNummer}/${fileName}.js`;
-    fetch(url)
-    .then(data => data.text())
-    .then(code => {
+    try {
+        const data = await fetch(url)
+        const code = await data.text();
         document.getElementById(id).innerText = code;
-    })
-    .catch(e => console.error(e))
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 
