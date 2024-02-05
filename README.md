@@ -4,6 +4,6 @@
 > # Name: Md Khaled Mahmud Shujon
 > # kurzel: mshujo2s
 > # Verwendete Sprache: HTML5, CSS3 and JavaScript
-> # Status: in Bearbeitung......
+> # Status: "Fertig"
 # Live Link: https://hbrs-we-homepage.netlify.app
 
